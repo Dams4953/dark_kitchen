@@ -28,6 +28,7 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
+<<<<<<< HEAD
 .section-home {
   background: url("../images/BandeEntete.png") no-repeat center center fixed;
   -o-object-fit: cover;
@@ -86,9 +87,163 @@ p, h1, h2, h3, h4, h5, h6 {
   justify-content: center;
 }
 
+=======
+<<<<<<< HEAD
+/* BODY CARD */
+#card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+}
+
+.h2main {
+  font-size: 34px;
+  color: #215F3F;
+  font-family: "Fraunces";
+  text-align: center;
+}
+
+@media (min-width: 470px) {
+  .desktop-image {
+    display: block;
+    display: block;
+    width: 400px;
+    height: 380px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .card {
+    width: 400px;
+    border-radius: 20px;
+    background-color: white;
+    margin: 20px;
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  .card__genre {
+    margin-top: 0px;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: hsl(228, 12%, 48%);
+    font-family: "Montserrat";
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+  }
+  .card__nom {
+    padding-left: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: "Fraunces";
+    color: #215F3F;
+  }
+  .card__prix {
+    padding-left: 20px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    font-size: medium;
+    font-family: "Fraunces";
+  }
+  .card__ingredients {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 15px;
+    font-family: "Montserrat";
+    font-weight: 500;
+    margin: 5px 5px 10px 0px;
+  }
+  .card__note {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+  }
+  .card__lien {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-family: "Montserrat";
+    font-weight: 500;
+  }
+  .card__lien a:hover {
+    text-transform: uppercase;
+    transform: scale(1.05);
+    transition-duration: 200ms;
+  }
+  .card:hover {
+    transform: scale(1.05);
+    transition-duration: 200ms;
+  }
+  .content {
+    background-color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  a {
+    background-color: #215F3F;
+    color: white;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+    margin: auto;
+    height: 40px;
+    text-decoration: none;
+    padding-top: 8px;
+  }
+}
+>>>>>>> ac65cd1357e5a08a387f2bf78e275683214ed1ac
 .footer_container_icones_list {
   list-style: none;
   padding: 0;
+=======
+.footer {
+  width: 100%;
+  background-color: #769e67;
+}
+
+.footer_container_github img {
+  width: 150px;
+}
+
+.footer_container_about {
+>>>>>>> 8346bca7208a00599e3cd6c0b3e2e8647f304a66
   display: flex;
   justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+.footer_container_about img {
+  width: 450px;
+}
+.footer_container_about strong {
+  font-size: 30px;
+}
+.footer_container_about .footer_container_liens_list {
+  text-decoration: none;
+  list-style: none;
+}
+
+.footer_container_icones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.footer_container_icones .footer_container_icones_list {
+  list-style: none;
+  display: flex;
+}
+.footer_container_icones .footer_container_icones_list .footer_container_icones_list_li {
+  margin-right: 100px;
+}
+.footer_container_icones .footer_container_icones_list .footer_container_icones_list_li img {
+  width: 50px;
 }/*# sourceMappingURL=style.css.map */
