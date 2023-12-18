@@ -28,7 +28,6 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
-<<<<<<< HEAD
 .section-home {
   background: url("../images/BandeEntete.png") no-repeat center center fixed;
   -o-object-fit: cover;
@@ -87,8 +86,36 @@ p, h1, h2, h3, h4, h5, h6 {
   justify-content: center;
 }
 
-=======
-<<<<<<< HEAD
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
 /* BODY CARD */
 #card-container {
   display: flex;
@@ -197,11 +224,13 @@ p, h1, h2, h3, h4, h5, h6 {
     padding-top: 8px;
   }
 }
->>>>>>> ac65cd1357e5a08a387f2bf78e275683214ed1ac
 .footer_container_icones_list {
   list-style: none;
   padding: 0;
-=======
+  display: flex;
+  justify-content: space-between;
+}
+
 .footer {
   width: 100%;
   background-color: #769e67;
@@ -212,7 +241,6 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 .footer_container_about {
->>>>>>> 8346bca7208a00599e3cd6c0b3e2e8647f304a66
   display: flex;
   justify-content: space-between;
   justify-content: space-evenly;
