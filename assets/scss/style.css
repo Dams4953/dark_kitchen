@@ -28,6 +28,64 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
+.section-home {
+  background: url("../images/BandeEntete.png") no-repeat center center fixed;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.section-home .navbar {
+  display: flex;
+  flex-direction: row;
+  background-color: RGB(29, 95, 57);
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  margin: 0;
+}
+.section-home .navbar .nav_menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 33%;
+  align-items: center;
+  margin: 3%;
+}
+.section-home .navbar .logo {
+  height: 100px;
+  width: auto;
+  margin: 3%;
+}
+.section-home .row {
+  display: none;
+}
+.section-home .intro {
+  display: flex;
+  flex-direction: column;
+  padding: 15%;
+  text-align: center;
+  color: white;
+}
+.section-home .intro h1 {
+  font-weight: 800;
+  font-size: 60px;
+  letter-spacing: 10px;
+}
+.section-home .intro p {
+  font-weight: 400;
+  font-size: 36px;
+  letter-spacing: 2px;
+}
+.section-home .intro .arrow-down {
+  display: flex;
+  justify-content: center;
+}
+
 .footer_container_icones_list {
   list-style: none;
   padding: 0;
