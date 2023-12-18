@@ -28,9 +28,47 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
-.footer_container_icones_list {
-  list-style: none;
-  padding: 0;
+.footer {
+  width: 100%;
+  background-color: #769e67;
+}
+
+.footer_container_github img {
+  width: 150px;
+}
+
+.footer_container_about {
   display: flex;
   justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+.footer_container_about img {
+  width: 450px;
+}
+.footer_container_about strong {
+  font-size: 30px;
+}
+.footer_container_about .footer_container_liens_list {
+  text-decoration: none;
+  list-style: none;
+}
+
+.footer_container_icones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.footer_container_icones .footer_container_icones_list {
+  list-style: none;
+  display: flex;
+}
+.footer_container_icones .footer_container_icones_list .footer_container_icones_list_li {
+  margin-right: 100px;
+}
+.footer_container_icones .footer_container_icones_list .footer_container_icones_list_li img {
+  width: 50px;
 }/*# sourceMappingURL=style.css.map */

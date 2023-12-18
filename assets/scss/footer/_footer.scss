@@ -1,0 +1,64 @@
+
+
+.footer {
+    width: 100%;
+    background-color: #769e67;
+}
+
+
+
+.footer_container_github {
+    
+    img {
+        width: 150px;
+    }
+}
+
+
+.footer_container_about {
+    display: flex;
+    justify-content: space-between;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: auto;
+
+    img {
+        width: 450px;
+    }
+
+    strong {
+        font-size: 30px;
+    }
+
+    .footer_container_liens_list {
+        text-decoration: none;
+        list-style: none;
+    }
+}
+
+.footer_container_icones {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+   
+
+    .footer_container_icones_list {
+        list-style: none;
+        display: flex;
+        
+       
+        
+    
+        .footer_container_icones_list_li {
+            margin-right: 100px; 
+            
+            img {
+                width: 50px;
+            }
+
+        }
+    }
+}
+
