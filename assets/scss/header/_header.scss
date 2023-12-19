@@ -62,7 +62,7 @@ $desktop: 1400px;
             padding: 1%;
             padding: 1%;
             width: auto;
-            margin: 1%;
+            margin: 3%;
         }    
 
         .panier {
@@ -92,9 +92,14 @@ $desktop: 1400px;
         color: white;
 
         h1  {
+            font-family: 'Fraunces', sans-serif;
             font-weight: 800;
             font-size: 60px;
             letter-spacing: 10px;
+            font-family: 'Fraunces', sans-serif;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+            text-shadow: 5px 5px 5px black;
         }
 
         p  {
