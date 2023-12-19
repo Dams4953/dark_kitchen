@@ -9,7 +9,7 @@ const collection = [
       note: [
         "4/5",
       ],
-      commander: "https://www.youtube.com/watch?v=DzfpyUB60YY",
+      commander: "#",
 
 },
 //2
@@ -22,7 +22,7 @@ const collection = [
     note: [
       "3/5",
     ],
-    commander: "https://www.youtube.com/watch?v=iQXmlf3Sefg",
+    commander: "#",
   },
   //3
   {
@@ -34,7 +34,7 @@ const collection = [
     note: [
       "3,5/5",
     ],
-    commander: "https://www.youtube.com/watch?v=V6wWKNij_1M",
+    commander: "#",
   },
 //4
 {
@@ -46,7 +46,7 @@ const collection = [
     note: [
       "4/5",
     ],
-    commander: "https://www.youtube.com/watch?v=AsoUG9ScJnc",
+    commander: "#",
   },
   //5
   {
@@ -58,7 +58,7 @@ const collection = [
     note: [
       "4,5/5",
     ],
-    commander: "https://www.youtube.com/watch?v=WR7cc5t7tv8",
+    commander: "#",
   },
   //6
   {
@@ -70,7 +70,7 @@ const collection = [
     note: [
       "4/5",
     ],
-    commander: "https://www.youtube.com/watch?v=k5WQZzDRVtw",
+    commander: "#",
   },
   //7
   {
@@ -82,7 +82,7 @@ const collection = [
     note: [
       "2/5",
     ],
-    commander: "https://www.youtube.com/watch?v=k10ETZ41q5o",
+    commander: "#",
   },
   //8
   {
@@ -94,7 +94,7 @@ const collection = [
     note: [
       "4/5",
     ],
-    commander: "https://www.youtube.com/watch?v=1Vnghdsjmd0",
+    commander: "#",
   },
   //9
   {
@@ -106,7 +106,7 @@ const collection = [
     note: [
       "4/5",
     ],
-    commander: "https://www.youtube.com/watch?v=S014oGZiSdI",
+    commander: "#",
   },
 ];
 
@@ -115,6 +115,7 @@ let section = document.getElementById('card-container');
 for (let elem of collection) {
     let div = document.createElement('div');
     div.className = 'card';
+
   
     let divimg = document.createElement('div');
     divimg.className = 'card__image';
@@ -173,36 +174,115 @@ for (let elem of collection) {
    
 }
 
+//FILTRE
 
 
+// Créer un tableau avec tous les genres uniques de la collection
+const allGenres = collection.reduce((acc, card) => {
+    card.genre.forEach(genre => {
+        if (!acc.includes(genre)) {
+            acc.push(genre);
+        }
+    });
+    return acc;
+}, []);
 
+const filters = allGenres;  // Utiliser les genres uniques pour les filtres
+const filterButtons = document.getElementById('filter-buttons');
 
-
-
-/*
-function createCard (parent, elementType, className, textContent, src, alt, url){
-let element = document.createElement(elementType);
-
-if (className){
-element.classList.add(className)
+for (const filter of filters) {
+    const button = document.createElement('button');
+    button.textContent = filter;
+    button.addEventListener('click', () => filterCollection(filter));
+    filterButtons.appendChild(button);
 }
 
-if (textContent){
-element.textContent = textContent
+function filterCollection(genre) {
+  // Supprimer les cartes actuelles
+  section.innerHTML = '';
+
+  // Filtrer la collection en fonction du genre sélectionné
+  const filteredCards = collection.filter((card) => card.genre.includes(genre));
+
+  // Afficher les cartes filtrées
+  for (const elem of filteredCards) {
+      let div = document.createElement('div');
+      div.className = 'card';
+
+      let divimg = document.createElement('div');
+      divimg.className = 'card__image';
+
+      let img = document.createElement('img');
+      img.src = elem.picture;
+      img.className = 'desktop-image';
+
+      divimg.appendChild(img);
+
+      let h2 = document.createElement('h2');
+      h2.className = 'card__genre';
+      h2.textContent = elem.genre.join(', ');
+
+      let h3 = document.createElement('h3');
+      h3.className = 'card__nom';
+      h3.textContent = elem.nom;
+
+      let h4 = document.createElement('h4');
+      h4.className = 'card__prix';
+      h4.textContent = elem.prix;
+
+      let p = document.createElement('p');
+      p.className = 'card__ingredients';
+      p.textContent = elem.ingredients;
+
+      let divnote = document.createElement('div');
+      divnote.className = 'card__note';
+
+      let divnoteFirst = document.createElement('div');
+      divnoteFirst.className = 'card__note__first';
+      divnoteFirst.textContent = `Note des clients ${elem.note[0]}`;
+
+      divnote.appendChild(divnoteFirst);
+
+      let divlien = document.createElement('div');
+      divlien.className = 'card__lien';
+
+      let button = document.createElement('a');
+      button.className = 'card__order';
+      button.href = elem.commander;
+      button.textContent = 'Commander le produit';
+
+      divlien.appendChild(button);
+
+      div.appendChild(divimg);
+      div.appendChild(h2);
+      div.appendChild(h3);
+      div.appendChild(h4);
+      div.appendChild(p);
+      div.appendChild(divnote);
+      div.appendChild(divlien);
+
+      section.appendChild(div);
+  }
 }
 
-if (src){
-element.setAttribute('src', src)
-}
+/*DARKMODE*/
 
-if (alt){
-element.setAttribute('alt', alt)
-}
+const toggleButton = document.getElementById("darkmode-toggle");
+const body = document.body;
 
-if (url){
-element.setAttribute('url', url)
-}
+toggleButton.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
 
-parent.appendChild(element)
-}
-*/
+  let backgroundSection = document.getElementById("section-home");
+  let backgroundCard = document.getElementById("card");
+
+  if (body.classList.contains("dark-mode")) {
+    backgroundSection.style.backgroundImage = "url('assets/images/darkmode-image.png')";
+    backgroundSection.style.backgroundSize = "cover";
+    backgroundCard.style.backgroundColor = "grey";
+    console.log("Dark mode activated");
+  } else {
+    backgroundSection.style.backgroundImage = "url('assets/images/BandeEntete.png')";
+    backgroundCard.style.backgroundColor = ""; // Réinitialiser la couleur si nécessaire
+  }
+});

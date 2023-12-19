@@ -34,7 +34,6 @@ p, h1, h2, h3, h4, h5, h6 {
      object-fit: cover;
   background-size: cover;
   background-repeat: no-repeat;
-  object-fit: cover;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -47,6 +46,7 @@ p, h1, h2, h3, h4, h5, h6 {
   position: fixed;
   width: 100%;
   margin: 0;
+  z-index: 1;
 }
 .section-home .navbar .nav_menu {
   display: flex;
@@ -55,11 +55,22 @@ p, h1, h2, h3, h4, h5, h6 {
   width: 33%;
   align-items: center;
   margin: 3%;
+  list-style-type: none;
+  font-family: "Fraunces";
+}
+.section-home .navbar .nav_button {
+  color: white;
+  text-decoration: none;
 }
 .section-home .navbar .logo {
   height: 100px;
+  padding: 1%;
   width: auto;
-  margin: 3%;
+  margin: 1%;
+}
+.section-home .navbar .panier {
+  height: 40px;
+  background-color: invert(98%) sepia(100%) saturate(0%) hue-rotate(289deg) brightness(102%) contrast(102%);
 }
 .section-home .row {
   display: none;
@@ -75,47 +86,40 @@ p, h1, h2, h3, h4, h5, h6 {
   font-weight: 800;
   font-size: 60px;
   letter-spacing: 10px;
+  font-family: "Fraunces", sans-serif;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
 }
 .section-home .intro p {
   font-weight: 400;
   font-size: 36px;
   letter-spacing: 2px;
+  font-family: "Fraunces", sans-serif;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
 .section-home .intro .arrow-down {
   display: flex;
   justify-content: center;
+  padding: 7%;
+  margin: 1%;
+  animation: gelatine 0.5s infinite;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
+@keyframes gelatine {
+  from, to {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
 }
-
-* {
-  margin: 0;
-}
-
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
-
-input, button, textarea, select {
-  font: inherit;
-}
-
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
-
-#root, #__next {
-  isolation: isolate;
-}
-
 /* BODY CARD */
 #card-container {
   display: flex;
@@ -123,6 +127,7 @@ p, h1, h2, h3, h4, h5, h6 {
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: center;
+  z-index: -1;
 }
 
 .h2main {
@@ -198,6 +203,17 @@ p, h1, h2, h3, h4, h5, h6 {
     font-family: "Montserrat";
     font-weight: 500;
   }
+  .card__order {
+    background-color: #215F3F;
+    color: white;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+    margin: auto;
+    height: 40px;
+    text-decoration: none;
+    padding-top: 8px;
+  }
   .card__lien a:hover {
     text-transform: uppercase;
     transform: scale(1.05);
@@ -212,69 +228,77 @@ p, h1, h2, h3, h4, h5, h6 {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
-  a {
-    background-color: #215F3F;
-    color: white;
-    border-radius: 10px;
-    width: 400px;
+  #filter-buttons {
     text-align: center;
-    margin: auto;
-    height: 40px;
-    text-decoration: none;
-    padding-top: 8px;
   }
 }
-<<<<<<< HEAD
-=======
-.footer_container_icones_list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-}
-
->>>>>>> c33dff0aa6eb3f6150ceac48e1672d9b26b85001
 .footer {
   width: 100%;
-  background-color: #769e67;
+  background-color: #426d4a;
+}
+.footer .footer_contact {
+  width: 20%;
 }
 
-.footer_container_github img {
-  width: 150px;
-}
-
-.footer_container_about {
+.footer_container_contact {
   display: flex;
   justify-content: space-between;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  height: auto;
+  font-family: "Dancing Script";
+  font-size: 20px;
+  padding-top: 35px;
+  color: white;
 }
-.footer_container_about img {
+.footer_container_contact strong {
+  font-size: 45px;
+}
+.footer_container_contact img {
   width: 450px;
 }
-.footer_container_about strong {
-  font-size: 30px;
+
+.footer_contact_contact_items {
+  width: 20%;
 }
-.footer_container_about .footer_container_liens_list {
-  text-decoration: none;
-  list-style: none;
+
+.footer_politiqueConfi {
+  display: flex;
+  background-color: RGB(29, 95, 57);
+  width: 100%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.footer_politiqueConfi .footer_politiqueConfi_P {
+  font-size: 20px;
+  color: white;
+}
+
+.footer_container_github {
+  display: flex;
+}
+.footer_container_github img {
+  width: 90px;
 }
 
 .footer_container_icones {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 84%;
+  filter: invert(30%) sepia(115%) saturate(59%) hue-rotate(836deg) brightness(201%) contrast(247%);
 }
 .footer_container_icones .footer_container_icones_list {
   list-style: none;
   display: flex;
+  align-content: center;
+  align-items: center;
+  width: 18%;
 }
 .footer_container_icones .footer_container_icones_list .footer_container_icones_list_li {
   margin-right: 100px;
 }
 .footer_container_icones .footer_container_icones_list .footer_container_icones_list_li img {
-  width: 50px;
+  width: 30px;
 }/*# sourceMappingURL=style.css.map */

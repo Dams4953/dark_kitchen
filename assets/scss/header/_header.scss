@@ -1,14 +1,13 @@
-.section-home{
+.section-home {
     background: url('../images/BandeEntete.png') no-repeat center center fixed;
     object-fit: cover;
     background-size: cover;
     background-repeat: no-repeat;
-    object-fit: cover;
     width: 100%;
     display: flex;
     flex-direction: column;
 
-    .navbar{
+    .navbar {
         display: flex;
         flex-direction: row;
         background-color: RGB(29, 95, 57);
@@ -16,51 +15,92 @@
         position: fixed;
         width: 100%;
         margin: 0;
+        z-index: 1;
 
-        .nav_menu{
+        .nav_menu {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             width: 33%;
             align-items: center;
             margin: 3%;
+            list-style-type: none;
+            font-family: 'Fraunces';
         }
 
-        .logo{
+        .nav_button {
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo {
             height: 100px;
+            padding: 1%;
             width: auto;
-            margin: 3%;
+            margin: 1%;
+        }
+
+        .panier {
+            height: 40px;
+            background-color: invert(98%) sepia(100%) saturate(0%) hue-rotate(289deg) brightness(102%) contrast(102%);
         }
     }
 
-    .row{
+    .row {
         display: none;
     }
 
-    .intro{
+    .intro {
         display: flex;
         flex-direction: column;
         padding: 15%;
         text-align: center;
         color: white;
 
-        h1{
+        h1 {
             font-weight: 800;
             font-size: 60px;
             letter-spacing: 10px;
+            font-family: 'Fraunces', sans-serif;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: black;
         }
 
-        p{
+        p {
             font-weight: 400;
             font-size: 36px;
             letter-spacing: 2px;
+            font-family: 'Fraunces', sans-serif;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
         }
 
-        .arrow-down{
+        .arrow-down {
             display: flex;
             justify-content: center;
+            padding: 7%;
+            margin: 1%;
+            animation: gelatine 0.5s infinite;
         }
     }
 }
 
+@keyframes gelatine {
+    from,
+    to {
+        transform: scale(1, 1);
+    }
+
+    25% {
+        transform: scale(0.9, 1.1);
+    }
+
+    50% {
+        transform: scale(1.1, 0.9);
+    }
+
+    75% {
+        transform: scale(0.95, 1.05);
+    }
+}
 
