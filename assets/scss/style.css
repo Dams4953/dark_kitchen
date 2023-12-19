@@ -34,7 +34,6 @@ p, h1, h2, h3, h4, h5, h6 {
      object-fit: cover;
   background-size: cover;
   background-repeat: no-repeat;
-  object-fit: cover;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -47,6 +46,7 @@ p, h1, h2, h3, h4, h5, h6 {
   position: fixed;
   width: 100%;
   margin: 0;
+  z-index: 1;
 }
 .section-home .navbar .nav_menu {
   display: flex;
@@ -55,11 +55,22 @@ p, h1, h2, h3, h4, h5, h6 {
   width: 33%;
   align-items: center;
   margin: 3%;
+  list-style-type: none;
+  font-family: "Fraunces";
+}
+.section-home .navbar .nav_button {
+  color: white;
+  text-decoration: none;
 }
 .section-home .navbar .logo {
   height: 100px;
+  padding: 1%;
   width: auto;
-  margin: 3%;
+  margin: 1%;
+}
+.section-home .navbar .panier {
+  height: 40px;
+  background-color: invert(98%) sepia(100%) saturate(0%) hue-rotate(289deg) brightness(102%) contrast(102%);
 }
 .section-home .row {
   display: none;
@@ -75,17 +86,40 @@ p, h1, h2, h3, h4, h5, h6 {
   font-weight: 800;
   font-size: 60px;
   letter-spacing: 10px;
+  font-family: "Fraunces", sans-serif;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
 }
 .section-home .intro p {
   font-weight: 400;
   font-size: 36px;
   letter-spacing: 2px;
+  font-family: "Fraunces", sans-serif;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
 .section-home .intro .arrow-down {
   display: flex;
   justify-content: center;
+  padding: 7%;
+  margin: 1%;
+  animation: gelatine 0.5s infinite;
 }
 
+@keyframes gelatine {
+  from, to {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+}
 /* BODY CARD */
 #card-container {
   display: flex;

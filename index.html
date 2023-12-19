@@ -18,22 +18,24 @@
 <body>
     <header>
 
-        <div class="section-home">
+        <div class="section-home" id="section-home">
             <nav class="navbar">
                 <img class="logo" src="assets/images/logo.png" tag="logo">
                 <ul class="nav_menu">
                     <li class="nav_text">
-                        <a href="home">Home</a>
+                        <a class="nav_button" href="#card-container">Menu</a>
                     </li>
                     <li class="nav_text">
-                        <a href="#about">About</a>
+                        <a class="nav_button" href="#about">About</a>
                     </li>
                     <li class="nav_text">
-                        <a href="#contact">Contact</a>
+                        <a class="nav_button" href="#contact">Contact</a>
                     </li>
                     <li class="nav_text darkmode">
-                        <input type="checkbox" id="darkmode-toggle">
-                        <label for="darkmode-toggle"></label>
+                        <button class="darkmode-button" id="darkmode-toggle">Darkmode</button>
+                    </li>
+                    <li>
+                        <img class="panier" src="assets/images/panier.png">
                     </li>
                     <div class="row">
                         <input type="checkbox" id="hamburger">
@@ -51,9 +53,9 @@
                 <p>Our Mission (possible!)
                     There’s nothing cooler than saving the planet. Our mission is to inspire people to make better
                     choices by showing them the future can be both sustainable and delicious.</p>
-                <div class="arrow-down">
+                <a class="arrow-down" href="#card-container">
                     <img src="assets/images/icon-arrow-down.svg" tag="flèche">
-                </div>
+                </a>
             </div>
 
         </div>

@@ -173,84 +173,22 @@ for (let elem of collection) {
  
 }
 
-function displayCard(card) {
-const div = document.createElement('div');
-div.className = 'card';
+const toggleButton = document.getElementById("darkmode-toggle");
+const body = document.body;
 
-// (Votre code pour la création de chaque élément de carte)
+toggleButton.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
 
-section.appendChild(div);
-}
+  let backgroundSection = document.getElementById("section-home");
+  let backgroundCard = document.getElementById("card");
 
-function displayCard(card) {
-const div = document.createElement('div');
-div.className = 'card';
-
-// (Votre code pour la création de chaque élément de carte)
-
-section.appendChild(div);
-}
-
-// Boucle d'initialisation des cartes
-for (const elem of collection) {
-displayCard(elem);
-}
-
-const filters = ["Vegetarien", "Vegan", "Burger", "Wraps", "Sides", "Drinks"];
-const filterButtons = document.getElementById('filter-buttons');
-
-// Boucle d'initialisation des boutons de filtre
-for (const filter of filters) {
-const button = document.createElement('button');
-button.textContent = filter;
-button.addEventListener('click', () => filterCollection(filter));
-filterButtons.appendChild(button);
-}
-
-// Fonction pour filtrer la collection
-function filterCollection(genre) {
-  // Supprimer les cartes actuelles
-  section.innerHTML = filters.genre;
-
-// Filtrer la collection en fonction du genre sélectionné
-const filteredCards = collection.filter((card) => card.genre.includes(genre));
-
-// Afficher les cartes filtrées
-for (const card of filteredCards) {
-    displayCard(card);
-}
-}
-
-
-
-
-
-
-
-/*
-function createCard (parent, elementType, className, textContent, src, alt, url){
-let element = document.createElement(elementType);
-
-if (className){
-element.classList.add(className)
-}
-
-if (textContent){
-element.textContent = textContent
-}
-
-if (src){
-element.setAttribute('src', src)
-}
-
-if (alt){
-element.setAttribute('alt', alt)
-}
-
-if (url){
-element.setAttribute('url', url)
-}
-
-parent.appendChild(element)
-}
-*/
+  if (body.classList.contains("dark-mode")) {
+    backgroundSection.style.backgroundImage = "url('assets/images/darkmode-image.png')";
+    backgroundSection.style.backgroundSize = "cover";
+    backgroundCard.style.backgroundColor = "grey";
+    console.log("Dark mode activated");
+  } else {
+    backgroundSection.style.backgroundImage = "url('assets/images/BandeEntete.png')";
+    backgroundCard.style.backgroundColor = ""; // Réinitialiser la couleur si nécessaire
+  }
+});
