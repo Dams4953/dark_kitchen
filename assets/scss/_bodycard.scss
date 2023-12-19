@@ -94,6 +94,18 @@ $cream: hsl(30, 38%, 92%);
             font-family: "Montserrat";
             font-weight: 500;
         }
+
+        &__order {
+            background-color: $green;
+            color: white;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+            margin: auto;
+            height: 40px;
+            text-decoration: none;
+            padding-top: 8px;
+        }
     }
 
     .card__lien a:hover {
