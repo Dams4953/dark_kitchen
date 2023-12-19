@@ -172,7 +172,7 @@ for (let elem of collection) {
   section.appendChild(div);
  
 }
-
+//darkmode//
 const toggleButton = document.getElementById("darkmode-toggle");
 const body = document.body;
 
@@ -189,6 +189,8 @@ toggleButton.addEventListener("click", () => {
     console.log("Dark mode activated");
   } else {
     backgroundSection.style.backgroundImage = "url('assets/images/BandeEntete.png')";
-    backgroundCard.style.backgroundColor = ""; // Réinitialiser la couleur si nécessaire
+    backgroundCard.style.backgroundColor = ""; 
   }
 });
+
+//panier//

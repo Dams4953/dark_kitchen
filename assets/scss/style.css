@@ -68,9 +68,12 @@ p, h1, h2, h3, h4, h5, h6 {
   width: auto;
   margin: 1%;
 }
-.section-home .navbar .panier {
-  height: 40px;
-  background-color: invert(98%) sepia(100%) saturate(0%) hue-rotate(289deg) brightness(102%) contrast(102%);
+.section-home .navbar .custom-button {
+  background-color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 .section-home .row {
   display: none;
