@@ -1,3 +1,4 @@
+$small-screen: 375px;
 $mobile: 500px;
 $desktop: 1400px;
 
@@ -60,9 +61,8 @@ $desktop: 1400px;
         .logo {
             height: 100px;
             padding: 1%;
-            padding: 1%;
             width: auto;
-            margin: 3%;
+            margin-left: 12%;
         }    
 
         .panier {
@@ -100,6 +100,17 @@ $desktop: 1400px;
             -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: black;
             text-shadow: 5px 5px 5px black;
+            padding: 5%;
+            margin: 5%;
+            margin-top: 10%;
+
+            @include media-maxwidth($mobile) {
+                font-size: 20px;
+            }
+
+            @include media-maxwidth($small-screen){
+                margin-top: 25%;
+            }
         }
 
         p  {
@@ -116,9 +127,6 @@ $desktop: 1400px;
             @include media-maxwidth($mobile) {
                 font-size: 20px;
             }
-            font-family: 'Fraunces', sans-serif;
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: black;
         }
 
         .arrow-down {
