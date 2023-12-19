@@ -11,6 +11,7 @@ $cream: hsl(30, 38%, 92%);
     flex-wrap: wrap;
     align-content: flex-start;
     justify-content: center;
+    z-index:-1;
 }
 
 .h2main {
@@ -94,6 +95,17 @@ $cream: hsl(30, 38%, 92%);
             font-family: "Montserrat";
             font-weight: 500;
         }
+        &__order {
+            background-color: $green;
+            color: white;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+            margin: auto;
+            height: 40px;
+            text-decoration: none;
+            padding-top: 8px;
+        }
     }
 
     .card__lien a:hover {
@@ -112,17 +124,9 @@ $cream: hsl(30, 38%, 92%);
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
     }
-
-    .order {
-        background-color: $green;
-        color: white;
-        border-radius: 10px;
-        width: 400px;
+    #filter-buttons{
         text-align: center;
-        margin: auto;
-        height: 40px;
-        text-decoration: none;
-        padding-top: 8px;
     }
+
 
 }

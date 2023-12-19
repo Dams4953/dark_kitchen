@@ -68,12 +68,18 @@ p, h1, h2, h3, h4, h5, h6 {
   width: auto;
   margin: 1%;
 }
+<<<<<<< HEAD
 .section-home .navbar .custom-button {
   background-color: #ffffff;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+=======
+.section-home .navbar .panier {
+  height: 40px;
+  background-color: invert(98%) sepia(100%) saturate(0%) hue-rotate(289deg) brightness(102%) contrast(102%);
+>>>>>>> alexis
 }
 .section-home .row {
   display: none;
@@ -130,6 +136,7 @@ p, h1, h2, h3, h4, h5, h6 {
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: center;
+  z-index: -1;
 }
 
 .h2main {
@@ -205,6 +212,17 @@ p, h1, h2, h3, h4, h5, h6 {
     font-family: "Montserrat";
     font-weight: 500;
   }
+  .card__order {
+    background-color: #215F3F;
+    color: white;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+    margin: auto;
+    height: 40px;
+    text-decoration: none;
+    padding-top: 8px;
+  }
   .card__lien a:hover {
     text-transform: uppercase;
     transform: scale(1.05);
@@ -219,16 +237,16 @@ p, h1, h2, h3, h4, h5, h6 {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
+<<<<<<< HEAD
   .order {
     background-color: #215F3F;
     color: white;
     border-radius: 10px;
     width: 400px;
+=======
+  #filter-buttons {
+>>>>>>> alexis
     text-align: center;
-    margin: auto;
-    height: 40px;
-    text-decoration: none;
-    padding-top: 8px;
   }
 }
 .footer {

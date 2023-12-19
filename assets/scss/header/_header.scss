@@ -38,6 +38,7 @@
             padding: 1%;
             width: auto;
             margin: 1%;
+<<<<<<< HEAD
         }    
 
         .custom-button {
@@ -49,6 +50,16 @@
           }
 
 }
+=======
+        }
+
+        .panier {
+            height: 40px;
+            background-color: invert(98%) sepia(100%) saturate(0%) hue-rotate(289deg) brightness(102%) contrast(102%);
+        }
+    }
+
+>>>>>>> alexis
     .row {
         display: none;
     }
@@ -93,6 +104,22 @@
     to {
         transform: scale(1, 1);
     }
+<<<<<<< HEAD
+=======
+
+    25% {
+        transform: scale(0.9, 1.1);
+    }
+
+    50% {
+        transform: scale(1.1, 0.9);
+    }
+
+    75% {
+        transform: scale(0.95, 1.05);
+    }
+}
+>>>>>>> alexis
 
     25% {
         transform: scale(0.9, 1.1);
