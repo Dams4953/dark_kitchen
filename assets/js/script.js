@@ -169,6 +169,7 @@ for (let elem of collection) {
   section.appendChild(div);
 }
 
+
 const toggleButton = document.getElementById("darkmode-toggle");
 const body = document.body;
 
@@ -177,19 +178,19 @@ toggleButton.addEventListener("click", () => {
 
   let backgroundSection = document.getElementById("section-home");
   let allCards = document.querySelectorAll(".card");
-  let barNav = document.querySelector(".navbar");
-  let categories = document.querySelectorAll(".card__genre");
-  let backgroundFooter = document.querySelector('.footer');
-  let backgroundConfi = document.querySelector('.footer_politiqueConfi');
-  let orders = document.querySelectorAll('.card__order');
-  let ordersName = document.querySelectorAll('.card__nom');
+  let barNav = document.querySelector(".navbar")
+  let categories = document.querySelectorAll(".card__genre")
+  let backgroundFooter = document.querySelector('.footer')
+  let backgroundConfi = document.querySelector('.footer_politiqueConfi')
+  let orders = document.querySelectorAll('.card__order')
+  let ordersName = document.querySelectorAll('.card__nom')
 
   if (body.classList.contains("dark-mode")) {
     backgroundSection.style.backgroundImage = "url('assets/images/darkmode-image.png')";
     backgroundSection.style.backgroundSize = "cover";
-    barNav.style.backgroundColor = "rgb(66, 63, 62)";
-    backgroundFooter.style.backgroundColor = "rgb(66, 63, 62)";
-    backgroundConfi.style.backgroundColor = "rgb(85, 84, 83)";
+    barNav.style.backgroundColor = "rgb(66, 63, 62)"
+    backgroundFooter.style.backgroundColor = "rgb(66, 63, 62)"
+    backgroundConfi.style.backgroundColor = "rgb(85, 84, 83)"
 
     allCards.forEach(card => {
       card.style.backgroundColor = "grey";
@@ -200,18 +201,20 @@ toggleButton.addEventListener("click", () => {
     });
 
     orders.forEach(order => {
-      order.style.backgroundColor = "rgb(85, 84, 83)";
-    });
+      order.style.backgroundColor = "rgb(85, 84, 83)"
+    })
 
     ordersName.forEach(orderName => {
-      orderName.style.color = "rgb(85, 84, 83)";
-    });
+      orderName.style.color = "rgb(85, 84, 83)"
+    })
+
   } else {
     backgroundSection.style.backgroundImage = "url('assets/images/BandeEntete.png')";
     backgroundFooter.style.backgroundColor = "";
     barNav.style.backgroundColor = "";
     backgroundFooter.style.backgroundColor = "";
     backgroundConfi.style.backgroundColor = "";
+
 
     allCards.forEach(card => {
       card.style.backgroundColor = "";
@@ -223,13 +226,17 @@ toggleButton.addEventListener("click", () => {
 
     orders.forEach(order => {
       order.style.backgroundColor = "";
-    });
+    })
+
 
     ordersName.forEach(orderName => {
-      orderName.style.color = "";
-    });
+      orderName.style.color = ""
+    })
+
   }
-});
+}
+)
+
 
 
 /*
