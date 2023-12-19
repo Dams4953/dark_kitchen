@@ -224,6 +224,16 @@ p, h1, h2, h3, h4, h5, h6 {
     padding-top: 8px;
   }
 }
+<<<<<<< HEAD
+=======
+.footer_container_icones_list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+>>>>>>> c33dff0aa6eb3f6150ceac48e1672d9b26b85001
 .footer {
   width: 100%;
   background-color: #769e67;
