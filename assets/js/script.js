@@ -154,7 +154,7 @@ for (let elem of collection) {
     divlien.className = 'card__lien';
   
     let button = document.createElement('a');
-    button.className = 'card__order'
+    button.className = 'card__order';
 
     button.href = elem.commander;
     button.textContent = 'Commander le produit';
