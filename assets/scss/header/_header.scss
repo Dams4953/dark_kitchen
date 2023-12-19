@@ -35,6 +35,13 @@ $desktop: 1400px;
             margin: 3%;
             list-style-type: none;
             font-family: 'Fraunces';
+        }
+
+        .nav_button {
+            color: white;
+            text-decoration: none;
+            list-style-type: none;
+            font-family: 'Fraunces';
 
             @include media-maxwidth($mobile) {
                 display: none;
@@ -53,7 +60,14 @@ $desktop: 1400px;
         .logo {
             height: 100px;
             padding: 1%;
+            padding: 1%;
             width: auto;
+            margin: 1%;
+        }
+
+        .panier {
+            height: 40px;
+            background-color: invert(98%) sepia(100%) saturate(0%) hue-rotate(289deg) brightness(102%) contrast(102%);
             margin: 1%;
         }
 
@@ -63,34 +77,24 @@ $desktop: 1400px;
         }
     }
 
-    .row {
+    .row  {
         display: none;
     }
 
-    .intro {
+    .intro  {
         display: flex;
         flex-direction: column;
         padding: 15%;
         text-align: center;
         color: white;
 
-        h1 {
+        h1  {
             font-weight: 800;
             font-size: 60px;
             letter-spacing: 10px;
-            margin: 5%;
-            padding: 5%;
-            font-family: 'Fraunces', sans-serif;
-            -webkit-text-stroke-width: 2px;
-            -webkit-text-stroke-color: black;
-            text-shadow: 5px 5px 5px black;
-
-            @include media-maxwidth($mobile) {
-                font-size: 35px;
-            }
         }
 
-        p {
+        p  {
             font-weight: 400;
             font-size: 36px;
             letter-spacing: 2px;
@@ -104,6 +108,17 @@ $desktop: 1400px;
             @include media-maxwidth($mobile) {
                 font-size: 20px;
             }
+            font-family: 'Fraunces', sans-serif;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+        }
+
+        .arrow-down {
+            display: flex;
+            justify-content: center;
+            padding: 7%;
+            margin: 1%;
+            animation: gelatine 0.5s infinite;
         }
     }
 
@@ -201,3 +216,6 @@ input:checked + .slider:before {
 .slider.round::before {
     border-radius: 5px;
 }
+
+
+

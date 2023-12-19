@@ -1,5 +1,10 @@
+
 .footer {
     width: 100%;
+    background-color: #426d4a;
+
+    .footer_contact {
+        width: 20%;
     background-color: #426d4a;
 
     .footer_contact {
@@ -7,6 +12,7 @@
     }
 }
 
+.footer_container_contact {
 .footer_container_contact {
     display: flex;
     justify-content: space-between;
@@ -59,11 +65,17 @@
     width: 84%;
     filter: invert(30%) sepia(115%) saturate(59%) hue-rotate(836deg) brightness(201%) contrast(247%);
     
+    width: 84%;
+    filter: invert(30%) sepia(115%) saturate(59%) hue-rotate(836deg) brightness(201%) contrast(247%);
+    
    
 
     .footer_container_icones_list {
         list-style: none;
-        display: flex;   
+        display: flex;      
+        align-content: center;
+        align-items: center;
+        width: 18%;
         align-content: center;
         align-items: center;
         width: 18%;
@@ -74,8 +86,11 @@
         .footer_container_icones_list_li {
             margin-right: 100px;
             
+            margin-right: 100px;
+            
             
             img {
+                width: 30px;
                 width: 30px;
             }
 
