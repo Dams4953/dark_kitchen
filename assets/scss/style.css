@@ -83,9 +83,12 @@ p, h1, h2, h3, h4, h5, h6 {
   background-color: invert(98%) sepia(100%) saturate(0%) hue-rotate(289deg) brightness(102%) contrast(102%);
   margin: 1%;
 }
-.section-home .navbar .panier {
-  height: 40px;
-  background-color: invert(98%) sepia(100%) saturate(0%) hue-rotate(289deg) brightness(102%) contrast(102%);
+.section-home .navbar .custom-button {
+  background-color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 .section-home .row {
   display: none;
@@ -264,6 +267,7 @@ body {
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: center;
+  z-index: -1;
 }
 
 .h2main {
@@ -364,11 +368,7 @@ body {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
-  .order {
-    background-color: #215F3F;
-    color: white;
-    border-radius: 10px;
-    width: 400px;
+  #filter-buttons {
     text-align: center;
     margin: auto;
     height: 40px;
@@ -391,7 +391,7 @@ body {
   width: 20%;
 }
 
-.footer_container_contact {
+
 .footer_container_contact {
   display: flex;
   justify-content: space-between;

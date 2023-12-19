@@ -1,4 +1,5 @@
 const collection = [
+<<<<<<< HEAD
   //1
   {
     nom: "Cheez Burger",
@@ -21,34 +22,48 @@ const collection = [
       "4/5",
     ],
     commander: "#",
+=======
+    //1
+    {
+      nom: "Cheez Burger",
+      prix: "Prix : 4,50€",
+      picture: "assets/images/burger1.jpeg",
+      genre: ["Burger", "Vegetarien"],
+      ingredients:["Neat patty, cheez, ketchup, mustard, pickles, onion"],
+      note: [
+        "4/5",
+      ],
+      commander: "#",
+>>>>>>> old-state
 
 },
 //2
 {
-  nom: "Smash Daddy",
-  prix: "Prix : 6,99€",
-  picture: "assets/images/burger2.jpeg",
-  genre: ["Burger", "Vegan"],
-  ingredients:["double neat smashed patty, double cheez, grilled onion, mustard, stack sauce"],
-  note: [
-    "3/5",
-  ],
-  commander: "#",
-},
-//3
-{
-  nom: "NEW! BBQ Brisket Burger",
-  prix: "Prix : 8,99€",
-  picture: "assets/images/burger3.jpeg",
-  genre: ["Burger", "Vegetarien"],
-  ingredients:["BBQ pulled mushroom 'brisket', double Neat smash patty, cheez, pickles, jalapenos, lettuce, pickled onion, BBQ sauce, herby aioli, mayo"],
-  note: [
-    "3,5/5",
-  ],
-  commander: "#",
-},
+    nom: "Smash Daddy",
+    prix: "Prix : 6,99€",
+    picture: "assets/images/burger2.jpeg",
+    genre: ["Burger", "Vegan"],
+    ingredients:["double neat smashed patty, double cheez, grilled onion, mustard, stack sauce"],
+    note: [
+      "3/5",
+    ],
+    commander: "#",
+  },
+  //3
+  {
+    nom: "NEW! BBQ Brisket Burger",
+    prix: "Prix : 8,99€",
+    picture: "assets/images/burger3.jpeg",
+    genre: ["Burger", "Vegetarien"],
+    ingredients:["BBQ pulled mushroom 'brisket', double Neat smash patty, cheez, pickles, jalapenos, lettuce, pickled onion, BBQ sauce, herby aioli, mayo"],
+    note: [
+      "3,5/5",
+    ],
+    commander: "#",
+  },
 //4
 {
+<<<<<<< HEAD
   nom: "Skinny Fries",
   prix: "Prix : 3,99€",
   picture: "assets/images/frites1.jpeg",
@@ -146,11 +161,17 @@ const collection = [
   },
   //4
   {
+=======
+>>>>>>> old-state
     nom: "Skinny Fries",
     prix: "Prix : 3,99€",
     picture: "assets/images/frites1.jpeg",
     genre: ["Sides"],
+<<<<<<< HEAD
     ingredients: ["skinny salty skin-on fries"],
+=======
+    ingredients:["skinny salty skin-on fries"],
+>>>>>>> old-state
     note: [
       "4/5",
     ],
@@ -162,7 +183,11 @@ const collection = [
     prix: "Prix : 6,99€",
     picture: "assets/images/wrap1.jpeg",
     genre: ["Wraps", "Vegetarien"],
+<<<<<<< HEAD
     ingredients: ["fried chick'n, croutons, parmesan, romaine lettuce, caesar dressing, smashed avocado, fresh tortilla wrap"],
+=======
+    ingredients:["fried chick'n, croutons, parmesan, romaine lettuce, caesar dressing, smashed avocado, fresh tortilla wrap"],
+>>>>>>> old-state
     note: [
       "4,5/5",
     ],
@@ -174,7 +199,11 @@ const collection = [
     prix: "Prix : 6,99€",
     picture: "assets/images/wrap2.jpeg",
     genre: ["Wraps", "Vegetarien"],
+<<<<<<< HEAD
     ingredients: ["falafel, croutons, parmesan, romaine lettuce, caesar dressing, smashed avocado, fresh tortilla wrap"],
+=======
+    ingredients:["falafel, croutons, parmesan, romaine lettuce, caesar dressing, smashed avocado, fresh tortilla wrap"],
+>>>>>>> old-state
     note: [
       "4/5",
     ],
@@ -186,7 +215,11 @@ const collection = [
     prix: "Prix : 12,99€",
     picture: "assets/images/salade1.jpeg",
     genre: ["Salad", "Vegetarien"],
+<<<<<<< HEAD
     ingredients: ["crispy chick'n, croutons, parmesan, romaine lettuce, caesar dressing"],
+=======
+    ingredients:["crispy chick'n, croutons, parmesan, romaine lettuce, caesar dressing"],
+>>>>>>> old-state
     note: [
       "2/5",
     ],
@@ -198,7 +231,11 @@ const collection = [
     prix: "Prix : 3,99€",
     picture: "assets/images/boisson1.jpeg",
     genre: ["Drinks"],
+<<<<<<< HEAD
     ingredients: ["Organic orangeade, this drink contains all the vitamins you need!"],
+=======
+    ingredients:["Organic orangeade, this drink contains all the vitamins you need!"],
+>>>>>>> old-state
     note: [
       "4/5",
     ],
@@ -210,7 +247,11 @@ const collection = [
     prix: "Prix : 3,99",
     picture: "assets/images/boisson2.jpeg",
     genre: ["Drinks"],
+<<<<<<< HEAD
     ingredients: ["Organic lemonade, this drink contains all the vitamins you need!"],
+=======
+    ingredients:["Organic lemonade, this drink contains all the vitamins you need!"],
+>>>>>>> old-state
     note: [
       "4/5",
     ],
@@ -221,12 +262,51 @@ const collection = [
 let section = document.getElementById('card-container');
 
 for (let elem of collection) {
-  let div = document.createElement('div');
-  div.className = 'card';
+    let div = document.createElement('div');
+    div.className = 'card';
 
-  let divimg = document.createElement('div');
-  divimg.className = 'card__image';
+  
+    let divimg = document.createElement('div');
+    divimg.className = 'card__image';
+  
+    let img = document.createElement('img');
+    img.src = elem.picture;
+    img.className = 'desktop-image';
+  
+    divimg.appendChild(img);
+  
+    let h2 = document.createElement('h2');
+    h2.className = 'card__genre';
+    h2.textContent = elem.genre.join(', ');
+  
+    let h3 = document.createElement('h3');
+    h3.className = 'card__nom';
+    h3.textContent = elem.nom;
+  
+    let h4 = document.createElement('h4');
+    h4.className = 'card__prix';
+    h4.textContent = elem.prix;
+  
+    let p = document.createElement('p');
+    p.className = 'card__ingredients';
+    p.textContent = elem.ingredients;
+  
+    let divnote = document.createElement('div');
+    divnote.className = 'card__note';
+  
+    let divnoteFirst = document.createElement('div');
+    divnoteFirst.className = 'card__note__first';
+    divnoteFirst.textContent = `Note des clients ${elem.note[0]}`;
+  
+    divnote.appendChild(divnoteFirst);
+  
+    let divlien = document.createElement('div');
+    divlien.className = 'card__lien';
+  
+    let button = document.createElement('a');
+    button.className = 'card__order'
 
+<<<<<<< HEAD
   let img = document.createElement('img');
   img.src = elem.picture;
   img.className = 'desktop-image';
@@ -305,6 +385,8 @@ for (let elem of collection) {
 
   let button = document.createElement('a');
   button.className = 'card__order'
+=======
+>>>>>>> old-state
 
   button.href = elem.commander;
   button.textContent = 'Commander le produit';
@@ -322,9 +404,13 @@ for (let elem of collection) {
   section.appendChild(div);
 
 }
+<<<<<<< HEAD
 
 /*DarkMode*/
 
+=======
+//darkmode//
+>>>>>>> old-state
 const toggleButton = document.getElementById("darkmode-toggle");
 const body = document.body;
 
@@ -365,6 +451,7 @@ toggleButton.addEventListener("click", () => {
 
   } else {
     backgroundSection.style.backgroundImage = "url('assets/images/BandeEntete.png')";
+<<<<<<< HEAD
     backgroundFooter.style.backgroundColor = "";
     barNav.style.backgroundColor = "";
     backgroundFooter.style.backgroundColor = "";
@@ -420,3 +507,99 @@ element.setAttribute('url', url)
 parent.appendChild(element)
 }
 */
+=======
+    backgroundCard.style.backgroundColor = ""; 
+  }
+});
+
+//panier//
+// Créer un tableau avec tous les genres uniques de la collection
+const allGenres = collection.reduce((acc, card) => {
+    card.genre.forEach(genre => {
+        if (!acc.includes(genre)) {
+            acc.push(genre);
+        }
+    });
+    return acc;
+}, []);
+
+const filters = allGenres;  // Utiliser les genres uniques pour les filtres
+const filterButtons = document.getElementById('filter-buttons');
+
+for (const filter of filters) {
+    const button = document.createElement('button');
+    button.textContent = filter;
+    button.addEventListener('click', () => filterCollection(filter));
+    filterButtons.appendChild(button);
+}
+
+function filterCollection(genre) {
+  // Supprimer les cartes actuelles
+  section.innerHTML = '';
+
+  // Filtrer la collection en fonction du genre sélectionné
+  const filteredCards = collection.filter((card) => card.genre.includes(genre));
+
+  // Afficher les cartes filtrées
+  for (const elem of filteredCards) {
+      let div = document.createElement('div');
+      div.className = 'card';
+
+      let divimg = document.createElement('div');
+      divimg.className = 'card__image';
+
+      let img = document.createElement('img');
+      img.src = elem.picture;
+      img.className = 'desktop-image';
+
+      divimg.appendChild(img);
+
+      let h2 = document.createElement('h2');
+      h2.className = 'card__genre';
+      h2.textContent = elem.genre.join(', ');
+
+      let h3 = document.createElement('h3');
+      h3.className = 'card__nom';
+      h3.textContent = elem.nom;
+
+      let h4 = document.createElement('h4');
+      h4.className = 'card__prix';
+      h4.textContent = elem.prix;
+
+      let p = document.createElement('p');
+      p.className = 'card__ingredients';
+      p.textContent = elem.ingredients;
+
+      let divnote = document.createElement('div');
+      divnote.className = 'card__note';
+
+      let divnoteFirst = document.createElement('div');
+      divnoteFirst.className = 'card__note__first';
+      divnoteFirst.textContent = `Note des clients ${elem.note[0]}`;
+
+      divnote.appendChild(divnoteFirst);
+
+      let divlien = document.createElement('div');
+      divlien.className = 'card__lien';
+
+      let button = document.createElement('a');
+      button.className = 'card__order';
+      button.href = elem.commander;
+      button.textContent = 'Commander le produit';
+
+      divlien.appendChild(button);
+
+      div.appendChild(divimg);
+      div.appendChild(h2);
+      div.appendChild(h3);
+      div.appendChild(h4);
+      div.appendChild(p);
+      div.appendChild(divnote);
+      div.appendChild(divlien);
+
+      section.appendChild(div);
+  }
+}
+
+
+>>>>>>> old-state

@@ -63,7 +63,7 @@ $desktop: 1400px;
             padding: 1%;
             width: auto;
             margin: 1%;
-        }
+        }    
 
         .panier {
             height: 40px;
@@ -71,12 +71,15 @@ $desktop: 1400px;
             margin: 1%;
         }
 
-        .panier {
-            height: 40px;
-            background-color: invert(98%) sepia(100%) saturate(0%) hue-rotate(289deg) brightness(102%) contrast(102%);
-        }
-    }
+        .custom-button {
+            background-color: #ffffff; 
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+          }
 
+}
     .row  {
         display: none;
     }
