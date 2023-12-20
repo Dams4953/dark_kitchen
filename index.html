@@ -9,7 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap"
         rel="stylesheet">
 </head>
 
@@ -35,18 +36,49 @@
                         <input type="checkbox" class="darkmode-button" id="darkmode-toggle"></input>
                         <span class="slider round"></span>
                     </label>
-                    <li class="nav_text">
-                        <div class="custom-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 576 512" fill="#1E1E1E" style="background-color: transparent;">
-                              <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path>
-                            </svg>
-                          </button>
-                        </div>
-                    </li>
-                </ul>
-                <div class="row" id="icons">
+                    <button class="shoppingcart">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1.4em" viewBox="0 0 576 512" fill="#1E1E1E" style="background-color: transparent;">
+                          <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path>
+                        </svg>
+                      </button>
+                </li>
+            </ul>
+
+            <div class="modal" id="cartModal" style="
+                display: flex;
+                position: fixed;
+                width: 100%;
+                top: 15%;
+                justify-content: center;
+            
+            ">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h2>Shopping Cart</h2>
+                    <span id="closeModal" class="close-button">&times;</span>
+                  </div>  
+                  <table id="cartTable">
+                    <thead>
+                      <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="cartItems"></tbody>
+                  </table>
+                  <p class="total_checkout">Total: <span id="cartTotal">€0.00</span></p>
+                  <button id="checkoutButton" onclick="orderComplete()">Order now</button>
+                  <button onclick="clearCart()" class="clear_btn">Clear cart</button>
                 </div>
-            </nav>
+              </div> 
+
+              <div class="row" id="icons">
+            </div>
+        </nav>
+
 
             <div class="intro">
                 <h1>VEGGIE POINT.</h1>
@@ -60,13 +92,34 @@
 
         </div>
     </header>
-
     <main>
         <h2 class="h2main">Notre menu :</h2>
         <div id="filter-buttons"></div>
-        <div id="card-container"> 
+        <div id="reset">
+        <button id="reset-button" onclick="resetCollection()">All</button>
         </div>
+        <div id="card-container"></div>
             <script src="assets/js/script.js"></script>
+    
+        <section class="mission">
+            <div class="mission__title">
+                <h2 id="title-mission">Our mission</h2>
+                <blockquote class="mission__slogan">" Create sustainably delicious dishes that make people happy and the planet even happier "</blockquote>
+            </div>
+            <div class="mission-container">
+                <figure class="img-vege">
+                    <img src="assets/images/packaging.webp" class="legume" alt="legume">
+                </figure>
+                <div class="mission-container__content">
+                    <h3 id="title-mission">Plant Powered Packaging</h3>
+                    <p>It’s not just our food that’s plant-based, our packaging is made with plants too!  We've teamed up with the eco-warriors at Packaging Environmental Ltd, the masters of planet-friendly packaging solutions, to ensure our food is sustainable from kitchen to plate.
+                    </p>
+                </div>
+
+
+            </div>
+
+        </section>
     </main>
 
     <footer class="footer">
@@ -77,36 +130,37 @@
                     <img src="assets/images/logoclair2.png" alt="logo"></a>
                 </div>
                 <div class="footer_container_about" id="about">
-                    <h2>Qui sommes nous ?</h2>
-                    <p>Un restaurant végétarien dédié à la création de plats<br>délicieux et équilibrés,
-                        mettant en valeur des ingrédients<br>frais pour offrir une expérience culinaire savoureuse
-                        et<br>
-                        durable,tout en favorisant un mode de vie végétarien.
+                    <h2>Who are we ?</h2>
+                    <p>A vegetarian restaurant dedicated to<br>
+                        creating dishes delicious and balanced,<br>
+                        highlighting ingredients fresh to provide<br>
+                        a tasty and delicious culinary experience<br>
+                        sustainable, while promoting a vegetarian lifestyle.
                     </p>
                 </div>
 
             </div>
-            <div class="footer_container_github">
+            <div class="footer_container_icones">
                 <a href="https://github.com/Dams4953/dark_kitchen/tree/main"><img src="assets/images/githubLogo.png"
                         alt="github"></a>
 
 
-                <div class="footer_container_icones">
-                    <ul class="footer_container_icones_list">
+                <div class="footer_container_icones_reseaux">
+                    <ul class="footer_container_icones_reseaux_list">
                         <li>
-                            <a class="footer_container_icones_list_li" href=""><img
+                            <a class="footer_container_icones_reseaux_list_li" href=""><img
                                     src="assets/images/icon-facebook.svg" alt="facebook"></a>
                         </li>
                         <li>
-                            <a class="footer_container_icones_list_li" href=""><img src="assets/images/icon-twitter.svg"
+                            <a class="footer_container_icones_reseaux_list_li" href=""><img src="assets/images/icon-twitter.svg"
                                     alt="twitter"></a>
                         </li>
                         <li>
-                            <a class="footer_container_icones_list_li" href=""><img
+                            <a class="footer_container_icones_reseaux_list_li" href=""><img
                                     src="assets/images/icon-instagram.svg" alt="instagram"></a>
                         </li>
                         <li>
-                            <a class="footer_container_icones_list_li" href=""><img
+                            <a class="footer_container_icones_reseaux_list_li" href=""><img
                                     src="assets/images/icon-pinterest.svg" alt="pinterest"></a>
                         </li>
                     </ul>

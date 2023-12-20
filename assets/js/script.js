@@ -107,6 +107,9 @@ const collection = [
   ],
   commander: "#",
 }];
+// STOCKER COPIE DE COLLECTION
+const originalCollection = [...collection];
+//AFFICHER LES CARTES
 
 let section = document.getElementById('card-container');
 
@@ -222,11 +225,11 @@ toggleButton.addEventListener("click", () => {
     backgroundConfi.style.backgroundColor = "";
     contact.style.backgroundColor="";
     menutitle.style.color="";
-    active.style.backgroundColor = "";
+    active.style.backgroundColor ="";
 
 
     allCards.forEach(card => {
-      card.style.backgroundColor = "";
+      card.style.backgroundColor ="";
     });
 
     categories.forEach(category => {
@@ -246,124 +249,275 @@ toggleButton.addEventListener("click", () => {
 }
 )
 
-
-
-/*
-function createCard (parent, elementType, className, textContent, src, alt, url){
-let element = document.createElement(elementType);
-
-if (className){
-element.classList.add(className)
-}
-
-if (textContent){
-element.textContent = textContent
-}
-
-if (src){
-element.setAttribute('src', src)
-}
-
-if (alt){
-element.setAttribute('alt', alt)
-}
-
-if (url){
-element.setAttribute('url', url)
-}
-
-parent.appendChild(element)
-}
-*/
-
-
 //panier//
 // Créer un tableau avec tous les genres uniques de la collection
 const allGenres = collection.reduce((acc, card) => {
-    card.genre.forEach(genre => {
-        if (!acc.includes(genre)) {
-            acc.push(genre);
-        }
-    });
-    return acc;
+  card.genre.forEach(genre => {
+      if (!acc.includes(genre)) {
+          acc.push(genre);
+      }
+  });
+  return acc;
 }, []);
 
 const filters = allGenres;  // Utiliser les genres uniques pour les filtres
 const filterButtons = document.getElementById('filter-buttons');
 
 for (const filter of filters) {
-    const button = document.createElement('button');
-    button.textContent = filter;
-    button.addEventListener('click', () => filterCollection(filter));
-    filterButtons.appendChild(button);
+  const button = document.createElement('button');
+  button.textContent = filter;
+  button.addEventListener('click', () => filterCollection(filter));
+  filterButtons.appendChild(button);
 }
 
+//FILTRER CARTES
+
 function filterCollection(genre) {
-  // Supprimer les cartes actuelles
-  section.innerHTML = '';
+// Supprimer les cartes actuelles
+section.innerHTML = '';
 
-  // Filtrer la collection en fonction du genre sélectionné
-  const filteredCards = collection.filter((card) => card.genre.includes(genre));
+// Filtrer la collection en fonction du genre sélectionné
 
-  // Afficher les cartes filtrées
-  for (const elem of filteredCards) {
-      let div = document.createElement('div');
-      div.className = 'card';
+const filteredCards = originalCollection.filter((card) => card.genre.includes(genre));
 
-      let divimg = document.createElement('div');
-      divimg.className = 'card__image';
+// Afficher les cartes filtrées
+for (const elem of filteredCards) {
+    let div = document.createElement('div');
+    div.className = 'card';
 
-      let img = document.createElement('img');
-      img.src = elem.picture;
-      img.className = 'desktop-image';
+    let divimg = document.createElement('div');
+    divimg.className = 'card__image';
 
-      divimg.appendChild(img);
+    let img = document.createElement('img');
+    img.src = elem.picture;
+    img.className = 'desktop-image';
 
-      let h2 = document.createElement('h2');
-      h2.className = 'card__genre';
-      h2.textContent = elem.genre.join(', ');
+    divimg.appendChild(img);
 
-      let h3 = document.createElement('h3');
-      h3.className = 'card__nom';
-      h3.textContent = elem.nom;
+    let h2 = document.createElement('h2');
+    h2.className = 'card__genre';
+    h2.textContent = elem.genre.join(', ');
 
-      let h4 = document.createElement('h4');
-      h4.className = 'card__prix';
-      h4.textContent = elem.prix;
+    let h3 = document.createElement('h3');
+    h3.className = 'card__nom';
+    h3.textContent = elem.nom;
 
-      let p = document.createElement('p');
-      p.className = 'card__ingredients';
-      p.textContent = elem.ingredients;
+    let h4 = document.createElement('h4');
+    h4.className = 'card__prix';
+    h4.textContent = elem.prix;
 
-      let divnote = document.createElement('div');
-      divnote.className = 'card__note';
+    let p = document.createElement('p');
+    p.className = 'card__ingredients';
+    p.textContent = elem.ingredients;
 
-      let divnoteFirst = document.createElement('div');
-      divnoteFirst.className = 'card__note__first';
-      divnoteFirst.textContent = `Note des clients ${elem.note[0]}`;
+    let divnote = document.createElement('div');
+    divnote.className = 'card__note';
 
-      divnote.appendChild(divnoteFirst);
+    let divnoteFirst = document.createElement('div');
+    divnoteFirst.className = 'card__note__first';
+    divnoteFirst.textContent = `Note des clients ${elem.note[0]}`;
 
-      let divlien = document.createElement('div');
-      divlien.className = 'card__lien';
+    divnote.appendChild(divnoteFirst);
 
-      let button = document.createElement('a');
-      button.className = 'card__order';
-      button.href = elem.commander;
-      button.textContent = 'Commander le produit';
+    let divlien = document.createElement('div');
+    divlien.className = 'card__lien';
 
-      divlien.appendChild(button);
+    let button = document.createElement('a');
+    button.className = 'card__order';
+    button.href = elem.commander;
+    button.textContent = 'Commander le produit';
 
-      div.appendChild(divimg);
-      div.appendChild(h2);
-      div.appendChild(h3);
-      div.appendChild(h4);
-      div.appendChild(p);
-      div.appendChild(divnote);
-      div.appendChild(divlien);
+    divlien.appendChild(button);
 
-      section.appendChild(div);
+    div.appendChild(divimg);
+    div.appendChild(h2);
+    div.appendChild(h3);
+    div.appendChild(h4);
+    div.appendChild(p);
+    div.appendChild(divnote);
+    div.appendChild(divlien);
+
+    section.appendChild(div);
+}
+}
+
+function resetCollection() {
+// Supprimer les cartes actuelles
+section.innerHTML = '';
+
+// Afficher toutes les cartes à nouveau
+for (const elem of originalCollection) {
+  let div = document.createElement('div');
+  div.className = 'card';
+
+  let divimg = document.createElement('div');
+  divimg.className = 'card__image';
+
+  let img = document.createElement('img');
+  img.src = elem.picture;
+  img.className = 'desktop-image';
+
+  divimg.appendChild(img);
+
+  let h2 = document.createElement('h2');
+  h2.className = 'card__genre';
+  h2.textContent = elem.genre.join(', ');
+
+  let h3 = document.createElement('h3');
+  h3.className = 'card__nom';
+  h3.textContent = elem.nom;
+
+  let h4 = document.createElement('h4');
+  h4.className = 'card__prix';
+  h4.textContent = elem.prix;
+
+  let p = document.createElement('p');
+  p.className = 'card__ingredients';
+  p.textContent = elem.ingredients;
+
+  let divnote = document.createElement('div');
+  divnote.className = 'card__note';
+
+  let divnoteFirst = document.createElement('div');
+  divnoteFirst.className = 'card__note__first';
+  divnoteFirst.textContent = `Note des clients ${elem.note[0]}`;
+
+  divnote.appendChild(divnoteFirst);
+
+  let divlien = document.createElement('div');
+  divlien.className = 'card__lien';
+
+  let button = document.createElement('a');
+  button.className = 'card__order';
+  button.href = elem.commander;
+  button.textContent = 'Commander le produit';
+
+  divlien.appendChild(button);
+
+  div.appendChild(divimg);
+  div.appendChild(h2);
+  div.appendChild(h3);
+  div.appendChild(h4);
+  div.appendChild(p);
+  div.appendChild(divnote);
+  div.appendChild(divlien);
+
+  section.appendChild(div);
+}
+}
+
+//panier//
+const cartModal = document.getElementById("cartModal");
+const cartList = document.getElementById("cartItems");
+const cartTotal = document.getElementById("cartTotal");
+const closeCartModalHandler = document.getElementById("closeModal");
+const shoppingCartButton = document.querySelector(".shoppingcart");
+const addButtons = document.querySelectorAll(".cart");
+const total_count = document.querySelector(".total_count"); // Sélectionnez la span pour le nombre total d'articles
+
+let cart = [];
+let total = 0;
+
+// Open modal
+function openCartModal() {
+  if (cartModal) {
+    cartModal.style.display = "block";
+    updateCartModalContent();
+  } else {
+    console.error("L'élément cartModal n'a pas été trouvé.");
   }
 }
 
+// Close modal
+function closeCartModal() {
+  cartModal.style.display = "none";
+}
+
+shoppingCartButton.addEventListener("click", openCartModal);
+closeCartModalHandler.addEventListener("click", closeCartModal);
+
+for (let button of addButtons) {
+  button.addEventListener(
+    "click",
+    function () {
+      addToCart(button.closest(".card"));
+      updateCartModalContent();
+    },
+    { once: true }
+  );
+}
+
+// Fonction pour ajouter un produit au panier
+function addToCart(productIndex) {
+  // Récupérer le produit à partir de la collection
+  const product = collection[productIndex];
+
+  // Créer une ligne pour le panier avec les détails du produit
+  const cartItem = document.createElement('tr');
+  cartItem.innerHTML = `
+    <td>${product.nom}</td>
+    <td>${product.prix}</td>
+    <td>1</td>
+    <td>${product.prix}</td>
+    <td><button onclick="removeFromCart(${productIndex})">Remove</button></td>
+  `;
+
+  // Ajouter la ligne au tableau du panier
+  document.getElementById('cartItems').appendChild(cartItem);
+
+  // Mettre à jour le total du panier
+  updateCartTotal();
+
+  // Afficher le message de confirmation (vous pouvez personnaliser cela)
+  alert(`Le produit "${product.nom}" a été ajouté au panier.`);
+}
+
+// Fonction pour mettre à jour le total du panier
+function updateCartTotal() {
+  const cartItems = document.getElementById('cartItems').getElementsByTagName('tr');
+  let total = 0;
+
+  for (let i = 0; i < cartItems.length; i++) {
+    const price = parseFloat(cartItems[i].getElementsByTagName('td')[1].innerText.replace('Prix : ', '').replace('€', ''));
+    total += price;
+  }
+
+  // Mettre à jour le total dans le panier
+  document.getElementById('cartTotal').innerText = `€${total.toFixed(2)}`;
+}
+
+// Fonction pour vider le panier
+function clearCart() {
+  document.getElementById('cartItems').innerHTML = '';
+  updateCartTotal();
+}
+
+// Fonction pour retirer un produit du panier
+function removeFromCart(productIndex) {
+  const cartItems = document.getElementById('cartItems');
+  const removedItem = cartItems.getElementsByTagName('tr')[productIndex];
+  cartItems.removeChild(removedItem);
+  updateCartTotal();
+}
+
+// Fonction appelée lorsqu'une commande est complétée
+function orderComplete() {
+  // Ajoutez ici la logique pour finaliser la commande
+  // Par exemple, vous pouvez envoyer une requête au serveur
+  // pour enregistrer la commande et vider le panier.
+  alert('Commande complétée avec succès ! Merci de votre achat.');
+}
+
+// Boucle sur la collection pour afficher les produits avec le bouton "Commander"
+for (let i = 0; i < collection.length; i++) {
+  const product = collection[i];
+  const iconDiv = document.createElement('div');
+  iconDiv.innerHTML = `
+    <img src="${product.picture}" alt="${product.nom}" width="100" height="100">
+    <p>${product.nom}</p>
+    <p>${product.prix}</p>
+    <button onclick="addToCart(${i})">Commander</button>
+  `;
+  document.getElementById('icons').appendChild(iconDiv);
+}
 
