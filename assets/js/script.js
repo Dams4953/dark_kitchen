@@ -2,7 +2,7 @@ const collection = [
   //1
   {
     nom: "Cheez Burger",
-    prix: "Prix : 4,50€",
+    prix: "Prix : 4.50",
     picture: "assets/images/burger1.jpeg",
     genre: ["Burger", "Vegetarien"],
     ingredients:["Neat patty, cheez, ketchup, mustard, pickles, onion"],
@@ -14,7 +14,7 @@ const collection = [
 //2
 {
   nom: "Smash Daddy",
-  prix: "Prix : 6,99€",
+  prix: "Prix : 6.99",
   picture: "assets/images/burger2.jpeg",
   genre: ["Burger", "Vegan"],
   ingredients:["double neat smashed patty, double cheez, grilled onion, mustard, stack sauce"],
@@ -26,7 +26,7 @@ const collection = [
 //3
 {
   nom: "NEW! BBQ Brisket Burger",
-  prix: "Prix : 8,99€",
+  prix: "Prix : 8.99",
   picture: "assets/images/burger3.jpeg",
   genre: ["Burger", "Vegetarien"],
   ingredients:["BBQ pulled mushroom 'brisket', double Neat smash patty, cheez, pickles, jalapenos, lettuce, pickled onion, BBQ sauce, herby aioli, mayo"],
@@ -38,7 +38,7 @@ const collection = [
 //4
 {
   nom: "Skinny Fries",
-  prix: "Prix : 3,99€",
+  prix: "Prix : 3.99",
   picture: "assets/images/frites1.jpeg",
   genre: ["Sides"],
   ingredients:["skinny salty skin-on fries"],
@@ -50,7 +50,7 @@ const collection = [
 //5
 {
   nom: "Crispy Chick'n Caesar Wrap",
-  prix: "Prix : 6,99€",
+  prix: "Prix : 6.99",
   picture: "assets/images/wrap1.jpeg",
   genre: ["Wraps", "Vegetarien"],
   ingredients:["fried chick'n, croutons, parmesan, romaine lettuce, caesar dressing, smashed avocado, fresh tortilla wrap"],
@@ -62,7 +62,7 @@ const collection = [
 //6
 {
   nom: "Falafel Caesar Wrap",
-  prix: "Prix : 6,99€",
+  prix: "Prix : 6.99",
   picture: "assets/images/wrap2.jpeg",
   genre: ["Wraps", "Vegetarien"],
   ingredients:["falafel, croutons, parmesan, romaine lettuce, caesar dressing, smashed avocado, fresh tortilla wrap"],
@@ -74,7 +74,7 @@ const collection = [
 //7
 {
   nom: "Cripsy Chick'n Caesar Salad",
-  prix: "Prix : 12,99€",
+  prix: "Prix : 12.99",
   picture: "assets/images/salade1.jpeg",
   genre: ["Salad", "Vegetarien"],
   ingredients:["crispy chick'n, croutons, parmesan, romaine lettuce, caesar dressing"],
@@ -86,7 +86,7 @@ const collection = [
 //8
 {
   nom: "Organic Orangeade",
-  prix: "Prix : 3,99€",
+  prix: "Prix : 3.99",
   picture: "assets/images/boisson1.jpeg",
   genre: ["Drinks"],
   ingredients:["Organic orangeade, this drink contains all the vitamins you need!"],
@@ -98,7 +98,7 @@ const collection = [
 //9
 {
   nom: "Lemony Lemonade",
-  prix: "Prix : 3,99",
+  prix: "Prix : 3.99",
   picture: "assets/images/boisson2.jpeg",
   genre: ["Drinks"],
   ingredients:["Organic lemonade, this drink contains all the vitamins you need!"],
@@ -111,10 +111,56 @@ const collection = [
 const originalCollection = [...collection];
 //AFFICHER LES CARTES*//
 
-//panier commander produit
-function addPanier(burger){
-  cart.push(burger);
-  console.log(cart);
+let cart = [];
+let total = 0;
+
+function addPanier(objet) {
+  cart.push(objet);
+  console.log('Produit ajouté au panier :', objet.nom);
+  updateCartTable();
+}
+
+function updateCartTable() {
+  let cartTableBody = document.querySelector('#cartItems');
+  if (!cartTableBody) {
+    console.error('ID "cartItems" non trouvé.');
+    return;
+  }
+
+  cartTableBody.innerHTML = '';
+
+  for (let item of cart) {
+    let newRow = document.createElement('tr');
+
+    let offer = document.createElement('td');
+    offer.className = 'produit';
+    offer.textContent = item.nom;  
+    newRow.appendChild(offer);
+
+    let price = document.createElement('td');
+    let priceValue = parseFloat(item.prix.replace(/[^\d.]/g, ''));
+    price.textContent = `${priceValue.toFixed(2)}`; 
+    newRow.appendChild(price);
+
+    cartTableBody.appendChild(newRow);
+  }
+
+  updateTotal();
+}
+
+function updateTotal() {
+  let cartTotalElement = document.querySelector('#cartTotal');
+  if (!cartTotalElement) {
+    console.error('ID "cartTotal" non trouvé.');
+    return;
+  }
+
+  total = cart.reduce((acc, item) => {
+    let priceValue = parseFloat(item.prix.replace(/[^\d.]/g, ''));
+    return acc + priceValue;
+  }, 0).toFixed(2);
+
+  cartTotalElement.textContent = `€${total}`;
 }
 
 
@@ -162,12 +208,17 @@ for (let elem of collection) {
   divlien.className = 'card__lien';
 
   let button = document.createElement('button');
-    button.className = 'card__order';
-    button.textContent = 'Commander le produit';
-    button.addEventListener("click", ()=>{addPanier(elem)});
+  button.className = 'card__order';
+  button.textContent = 'Commander le produit';
+  button.addEventListener("click", function () {
+    addPanier(elem);
+    console.log('Click sur le bouton Commander pour :', elem.nom);
+  });
 
+  // Ajoutez le bouton à la divlien
   divlien.appendChild(button);
 
+  // Ajoutez divimg, h2, h3, h4, p, divnote, et divlien à div
   div.appendChild(divimg);
   div.appendChild(h2);
   div.appendChild(h3);
@@ -176,10 +227,13 @@ for (let elem of collection) {
   div.appendChild(divnote);
   div.appendChild(divlien);
 
+  // Ajoutez div à la section
   section.appendChild(div);
 }
 
 
+
+//*DarkMode
 const toggleButton = document.getElementById("darkmode-toggle");
 const body = document.body;
 
@@ -329,7 +383,7 @@ for (const elem of filteredCards) {
     divlien.className = 'card__lien';
 
     let button = document.createElement('button');
-    button.className = 'card__order';
+    button.className = 'cart__order';
     button.textContent = 'Commander le produit';
     button.addEventListener("click", ()=>{addPanier(elem)});
 
@@ -395,7 +449,7 @@ for (const elem of originalCollection) {
   divlien.className = 'card__lien';
 
   let button = document.createElement('a');
-  button.className = 'card__order';
+  button.className = 'cart__order';
   button.href = elem.commander;
   button.textContent = 'Commander le produit';
 
@@ -419,8 +473,6 @@ const closeCartModalHandler = document.getElementById("closeModal");
 const shoppingCartButton = document.querySelector(".shoppingcart");
 const addButtons = document.querySelectorAll(".cart");
 
-let cart = [];
-let total = 0;
 
 // Open modal
 function openCartModal() {

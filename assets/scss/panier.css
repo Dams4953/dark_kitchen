@@ -1,25 +1,28 @@
+@charset "UTF-8";
 .modal {
-  display: none; /* By default, hide the modal */
   position: fixed;
-  top: 0;
+  top: 20%;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   z-index: 9999;
+  display: none; /* Vous pouvez masquer la boîte modale par défaut */
+  justify-content: center;
+  align-items: center;
 }
+
 .modal.active {
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
-.modal .modal-content {
-  background-color: rgb(128, 128, 128);
+
+.modal-content {
+  background-color: rgb(148, 148, 148);
   padding: 20px;
   border-radius: 8px;
-  width: 80%;
-  max-width: 600px;
+  width: 100%;
+  max-width: 50%;
 }
-.modal .modal-content .modal-header {
+
+.modal-content .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,35 +30,45 @@
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
-.modal .modal-content .modal-header h2 {
+
+.modal-content .modal-header h2 {
   font-size: 24px;
   margin: 0;
+  font-family: "Fraunces", sans-serif;
 }
-.modal .modal-content .modal-header .close-button {
+
+.modal-content .modal-header .close-button {
   cursor: pointer;
   font-size: 24px;
+  font-family: "Fraunces", sans-serif;
 }
-.modal .modal-content table {
+
+.modal-content table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
 }
-.modal .modal-content table th,
-.modal .modal-content table td {
+
+.modal-content th,
+.modal-content td {
   border-bottom: 1px solid #ccc;
   padding: 8px 0;
   text-align: left;
 }
-.modal .modal-content table th {
+
+.modal-content th {
   font-weight: bold;
+  font-family: "Fraunces", sans-serif;
 }
-.modal .modal-content .total_checkout {
+
+.modal-content .total_checkout {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
 }
-.modal .modal-content #checkoutButton,
-.modal .modal-content .clear_btn {
+
+.modal-content #checkoutButton,
+.modal-content .clear_btn {
   padding: 10px 20px;
   background-color: #3498db;
   color: white;
@@ -64,7 +77,14 @@
   cursor: pointer;
   margin-right: 10px;
 }
-.modal .modal-content #checkoutButton:hover,
-.modal .modal-content .clear_btn:hover {
+
+.modal-content #checkoutButton:hover,
+.modal-content .clear_btn:hover {
   background-color: #2980b9;
+}
+
+@media (max-width: 550px) {
+  .clear_btn {
+    margin-top: 5%;
+  }
 }/*# sourceMappingURL=panier.css.map */
