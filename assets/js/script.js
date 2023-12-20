@@ -107,9 +107,16 @@ const collection = [
   ],
   commander: "#",
 }];
-// STOCKER COPIE DE COLLECTION
+//* STOCKER COPIE DE COLLECTION
 const originalCollection = [...collection];
-//AFFICHER LES CARTES
+//AFFICHER LES CARTES*//
+
+//panier commander produit
+function addPanier(burger){
+  cart.push(burger);
+  console.log(cart);
+}
+
 
 let section = document.getElementById('card-container');
 
@@ -154,10 +161,10 @@ for (let elem of collection) {
   let divlien = document.createElement('div');
   divlien.className = 'card__lien';
 
-  let button = document.createElement('a');
-  button.className = 'card__order';
-  button.href = elem.commander;
-  button.textContent = 'Commander le produit';
+  let button = document.createElement('button');
+    button.className = 'card__order';
+    button.textContent = 'Commander le produit';
+    button.addEventListener("click", ()=>{addPanier(elem)});
 
   divlien.appendChild(button);
 
@@ -181,40 +188,40 @@ toggleButton.addEventListener("click", () => {
 
   let backgroundSection = document.getElementById("section-home");
   let allCards = document.querySelectorAll(".card");
-  let barNav = document.querySelector(".navbar")
-  let categories = document.querySelectorAll(".card__genre")
-  let backgroundFooter = document.querySelector('.footer')
-  let backgroundConfi = document.querySelector('.footer_politiqueConfi')
-  let orders = document.querySelectorAll('.card__order')
-  let ordersName = document.querySelectorAll('.card__nom')
-  let contact = document.querySelector('.footer_contact')
-  let menutitle = document.querySelector('.h2main')
-  let active = document.querySelector('.active')
+  let barNav = document.querySelector(".navbar");
+  let categories = document.querySelectorAll(".card__genre");
+  let backgroundFooter = document.querySelector('.footer');
+  let backgroundConfi = document.querySelector('.footer_politiqueConfi');
+  let orders = document.querySelectorAll('.card__order');
+  let ordersName = document.querySelectorAll('.card__nom');
+  let contact = document.querySelector('.footer_contact');
+  let menutitle = document.querySelector('.h2main');
+  let navMenu = document.querySelector(".nav_menu")
 
   if (body.classList.contains("dark-mode")) {
     backgroundSection.style.backgroundImage = "url('assets/images/darkmode-image.png')";
     backgroundSection.style.backgroundSize = "cover";
-    barNav.style.backgroundColor = "rgb(66, 63, 62)"
-    backgroundFooter.style.backgroundColor = "rgb(66, 63, 62)"
-    backgroundConfi.style.backgroundColor = "rgb(85, 84, 83)"
-    contact.style.backgroundColor="rgb(66, 63, 62)"
-    menutitle.style.color="rgb(85, 84, 83)"
-    active.style.backgroundColor = "rgb(66, 63, 62)"
+    barNav.style.backgroundColor = "rgb(66, 63, 62)";
+    backgroundFooter.style.backgroundColor = "rgb(66, 63, 62)";
+    backgroundConfi.style.backgroundColor = "rgb(85, 84, 83)";
+    contact.style.backgroundColor="rgb(66, 63, 62)";
+    menutitle.style.color="rgb(85, 84, 83)";
+    navMenu.style.backgroundColor = "rgb(66, 63, 62)";
 
     allCards.forEach(card => {
       card.style.backgroundColor = "grey";
     });
-
+    
     categories.forEach(category => {
-      category.style.color = "rgb(85, 84, 83)";
+      category.style.color = "rgb(85, 84, 83)"
     });
-
+    
     orders.forEach(order => {
-      order.style.backgroundColor = "rgb(85, 84, 83)"
+      order.style.backgroundColor = "rgb(85, 84, 83)";
     })
-
+    
     ordersName.forEach(orderName => {
-      orderName.style.color = "rgb(85, 84, 83)"
+      orderName.style.color = "rgb(85, 84, 83)";
     })
 
   } else {
@@ -225,11 +232,11 @@ toggleButton.addEventListener("click", () => {
     backgroundConfi.style.backgroundColor = "";
     contact.style.backgroundColor="";
     menutitle.style.color="";
-    active.style.backgroundColor ="";
+    navMenu.style.backgroundColor = "";
 
 
     allCards.forEach(card => {
-      card.style.backgroundColor ="";
+      card.style.backgroundColor = "";
     });
 
     categories.forEach(category => {
@@ -240,9 +247,8 @@ toggleButton.addEventListener("click", () => {
       order.style.backgroundColor = "";
     })
 
-
     ordersName.forEach(orderName => {
-      orderName.style.color = ""
+      orderName.style.color = "";
     })
 
   }
@@ -322,10 +328,11 @@ for (const elem of filteredCards) {
     let divlien = document.createElement('div');
     divlien.className = 'card__lien';
 
-    let button = document.createElement('a');
+    let button = document.createElement('button');
     button.className = 'card__order';
-    button.href = elem.commander;
     button.textContent = 'Commander le produit';
+    button.addEventListener("click", ()=>{addPanier(elem)});
+
 
     divlien.appendChild(button);
 
@@ -408,12 +415,9 @@ for (const elem of originalCollection) {
 
 //panier//
 const cartModal = document.getElementById("cartModal");
-const cartList = document.getElementById("cartItems");
-const cartTotal = document.getElementById("cartTotal");
 const closeCartModalHandler = document.getElementById("closeModal");
 const shoppingCartButton = document.querySelector(".shoppingcart");
 const addButtons = document.querySelectorAll(".cart");
-const total_count = document.querySelector(".total_count"); // Sélectionnez la span pour le nombre total d'articles
 
 let cart = [];
 let total = 0;
@@ -421,8 +425,7 @@ let total = 0;
 // Open modal
 function openCartModal() {
   if (cartModal) {
-    cartModal.style.display = "block";
-    updateCartModalContent();
+    cartModal.style.display = "flex";
   } else {
     console.error("L'élément cartModal n'a pas été trouvé.");
   }
@@ -441,7 +444,6 @@ for (let button of addButtons) {
     "click",
     function () {
       addToCart(button.closest(".card"));
-      updateCartModalContent();
     },
     { once: true }
   );
