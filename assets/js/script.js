@@ -251,6 +251,24 @@ toggleButton.addEventListener("click", () => {
 
 //panier//
 // Créer un tableau avec tous les genres uniques de la collection
+let allGenres = collection.reduce((acc, card) => {
+  card.genre.forEach(genre => {
+      if (!acc.includes(genre)) {
+          acc.push(genre);
+      }
+  });
+  return acc;
+}, []);
+
+let filters = allGenres;  // Utiliser les genres uniques pour les filtres
+let filterButtons = document.getElementById('filter-buttons');
+
+for (let filter of filters) {
+  let button = document.createElement('button');
+  button.textContent = filter;
+  button.addEventListener('click', () => filterCollection(filter));
+  filterButtons.appendChild(button);
+}
 
 //FILTRER CARTES
 
