@@ -20,6 +20,7 @@ $desktop: 1400px;
     .navbar {
         display: flex;
         flex-direction: row;
+        align-items: center;
         background-color: RGB(29, 95, 57);
         justify-content: space-between;
         position: fixed;
@@ -43,15 +44,6 @@ $desktop: 1400px;
             text-decoration: none;
             list-style-type: none;
             font-family: 'Fraunces';
-
-            @include media-maxwidth($mobile) {
-                display: none;
-            }
-        }
-
-        .nav_button {
-            color: white;
-            text-decoration: none;
         }
 
         .nav_text {
@@ -63,7 +55,7 @@ $desktop: 1400px;
             padding: 1%;
             width: auto;
             margin-left: 12%;
-        }    
+        }
 
         .panier {
             height: 40px;
@@ -72,26 +64,69 @@ $desktop: 1400px;
         }
 
         .custom-button {
-            background-color: #ffffff; 
+            background-color: #ffffff;
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
-          }
+        }
 
-}
-    .row  {
-        display: none;
     }
 
-    .intro  {
+    .row {
+        cursor: pointer;
+        display: none;
+    }
+    
+    @include media-maxwidth($mobile) {
+        #icons {
+            display: block;
+            color: white;
+            margin-right: 5%;
+        }
+    
+        #icons:before {
+            content: "\2630";
+        }
+    
+        .active #icons:before {
+            content: "\2715";
+        }
+    
+        .nav_menu {
+            position: fixed;
+            top: -100%;
+            background-color: RGB(29, 95, 57);
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+            transition: 0.25s;
+    
+            &.active {
+                top: 8%;
+                width: 100%;
+                z-index: -1;
+                margin: 0;
+                margin-top: 5%;
+                background-color: RGB(29, 95, 57);
+                padding: 2%;
+            }
+    
+            li {
+                padding: 3px 0;
+            }
+        }
+    }
+    
+
+    .intro {
         display: flex;
         flex-direction: column;
         padding: 15%;
         text-align: center;
         color: white;
 
-        h1  {
+        h1 {
             font-family: 'Fraunces', sans-serif;
             font-weight: 800;
             font-size: 60px;
@@ -108,12 +143,12 @@ $desktop: 1400px;
                 font-size: 20px;
             }
 
-            @include media-maxwidth($small-screen){
+            @include media-maxwidth($small-screen) {
                 margin-top: 25%;
             }
         }
 
-        p  {
+        p {
             font-weight: 400;
             font-size: 36px;
             letter-spacing: 2px;
@@ -148,6 +183,7 @@ $desktop: 1400px;
 }
 
 @keyframes gelatine {
+
     from,
     to {
         transform: scale(1, 1);
@@ -216,12 +252,12 @@ $desktop: 1400px;
     left: 2.5px;
 }
 
-input:checked + .slider {
+input:checked+.slider {
     background-color: #fd5d00;
     box-shadow: 0 0 3px #fd5d00;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
     transform: translateX(20px);
 }
 
@@ -233,3 +269,14 @@ input:checked + .slider:before {
     border-radius: 5px;
 }
 
+.custom-button{
+    height: 30px;
+    width: 50px;
+    align-items: center;
+    display: flex;
+}
+
+.image-panier{
+    height: 15px;
+    width: auto;
+}
