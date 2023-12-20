@@ -6,27 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dark kitchen</title>
     <link rel="stylesheet" href="assets/scss/style.css">
-<<<<<<< HEAD
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-=======
->>>>>>> alexis
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap"
         rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
     <header>
-
         <div class="section-home" id="section-home">
             <nav class="navbar">
-                <img class="logo" src="assets/images/logo.png" tag="logo">
+                <a href="#">
+                    <img class="logo" src="assets/images/logo.png" alt="logo">
+                </a>
                 <ul class="nav_menu">
                     <li class="nav_text">
                         <a class="nav_button" href="#card-container">Menu</a>
@@ -37,31 +30,27 @@
                     <li class="nav_text">
                         <a class="nav_button" href="#contact">Contact</a>
                     </li>
-                    <li class="nav_text darkmode">
-                        <button class="darkmode-button" id="darkmode-toggle">Darkmode</button>
-                    </li>
+                    <label class="nav_text darkmode">
+                        <span class="onoff"></span>
+                        <input type="checkbox" class="darkmode-button" id="darkmode-toggle"></input>
+                        <span class="slider round"></span>
+                    </label>
                     <li>
-<<<<<<< HEAD
                         <button class="custom-button">
                             <svg xmlns="http://www.w3.org/2000/svg" height="1.4em" viewBox="0 0 576 512" fill="#1E1E1E" style="background-color: transparent;">
                               <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path>
                             </svg>
                           </button>
-                          
-                          
-=======
-                        <img class="panier" src="assets/images/panier.png">
->>>>>>> alexis
                     </li>
-                    <div class="row">
-                        <input type="checkbox" id="hamburger">
-                        <label for="hamburger" class="hamburger">
-                            <span class="line"></span>
-                            <span class="line"></span>
-                            <span class="line"></span>
-                        </label>
-                    </div>
-
+                </ul>
+                <div class="row">
+                    <input type="checkbox" id="hamburger">
+                    <label for="hamburger" class="hamburger">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </label>
+                </div>
             </nav>
 
             <div class="intro">
@@ -80,31 +69,46 @@
     <main>
         <h2 class="h2main">Notre menu :</h2>
         <div id="filter-buttons"></div>
-        <div id="card-container">
-            </div>
+        <div id="reset">
+        <button id="reset-button" onclick="resetCollection()">All</button>
+        </div>
+        <div id="card-container"></div>
             <script src="assets/js/script.js"></script>
+    
+        <section class="mission">
+            <div class="mission__title">
+                <h2>Our mission</h2>
+                <blockquote class="mission__slogan">" Create sustainably delicious dishes that make people happy and the planet even happier "</blockquote>
+            </div>
+            <div class="mission-container">
+                <figure class="img-vege">
+                    <img src="assets/images/packaging.webp" class="legume" alt="legume">
+                </figure>
+                <div class="mission-container__content">
+                    <h3 id="title-mission">Plant Powered Packaging</h3>
+                    <p>It’s not just our food that’s plant-based, our packaging is made with plants too!  We've teamed up with the eco-warriors at Packaging Environmental Ltd, the masters of planet-friendly packaging solutions, to ensure our food is sustainable from kitchen to plate.
+                    </p>
+                </div>
+
+
+            </div>
+
+        </section>
     </main>
 
     <footer class="footer">
         <div class="footer_container">
             <div class="footer_container_contact">
-<<<<<<< HEAD
                 <p class="footer_contact" id="contact"><strong>Veggie Point</strong><br><i>20 Rue de Flandre<br>Bruxelles 1000<br>Belgique<br>----------------<br>0485 98 78 50<br>veggiepoint@hotmail.com</i></p>
                 <div class="footer_container_logo">
                     <img src="assets/images/logoclair2.png" alt="logo"></a>
                 </div>
                 <div class="footer_container_about" id="about">
-=======
-                <p class="footer_contact"><strong>Veggie Point</strong><br><i>20 Rue de Flandre<br>Bruxelles 1000<br>Belgique<br>----------------<br>0485 98 78 50<br>veggiepoint@hotmail.com</i></p>
-                <div class="footer_container_logo">
-                    <img src="assets/images/logoclair2.png" alt="logo"></a>
-                </div>
-                <div class="footer_container_about">
->>>>>>> alexis
                     <h2>Qui sommes nous ?</h2>
                     <p>Un restaurant végétarien dédié à la création de plats<br>délicieux et équilibrés,
-                    mettant en valeur des ingrédients<br>frais pour offrir une expérience culinaire savoureuse et<br>
-                    durable,tout en favorisant un mode de vie végétarien.
+                        mettant en valeur des ingrédients<br>frais pour offrir une expérience culinaire savoureuse
+                        et<br>
+                        durable,tout en favorisant un mode de vie végétarien.
                     </p>
                 </div>
 
@@ -135,10 +139,11 @@
                     </ul>
                 </div>
             </div>
-        <div class="footer_politiqueConfi">
-                <a class="footer_politiqueConfi_P" href="">politique de confidentialité</a>
+            <div class="footer_politiqueConfi">
+                <a class="footer_politiqueConfi_P" href="">Politique de confidentialité</a>
             </div>
     </footer>
+
 </body>
 
 </html>

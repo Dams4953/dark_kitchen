@@ -1,3 +1,13 @@
+$small-screen: 375px;
+$mobile: 500px;
+$desktop: 1400px;
+
+@mixin media-maxwidth($screensize) {
+    @media (max-width: $screensize) {
+        @content;
+    }
+}
+
 .section-home {
     background: url('../images/BandeEntete.png') no-repeat center center fixed;
     object-fit: cover;
@@ -20,8 +30,8 @@
         .nav_menu {
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
-            width: 33%;
+            justify-content: space-around;
+            width: 50%;
             align-items: center;
             margin: 3%;
             list-style-type: none;
@@ -31,15 +41,35 @@
         .nav_button {
             color: white;
             text-decoration: none;
+            list-style-type: none;
+            font-family: 'Fraunces';
+
+            @include media-maxwidth($mobile) {
+                display: none;
+            }
+        }
+
+        .nav_button {
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav_text {
+            margin: 2%;
         }
 
         .logo {
             height: 100px;
             padding: 1%;
             width: auto;
-            margin: 1%;
-<<<<<<< HEAD
+            margin-left: 12%;
         }    
+
+        .panier {
+            height: 40px;
+            background-color: invert(98%) sepia(100%) saturate(0%) hue-rotate(289deg) brightness(102%) contrast(102%);
+            margin: 1%;
+        }
 
         .custom-button {
             background-color: #ffffff; 
@@ -50,43 +80,53 @@
           }
 
 }
-=======
-        }
-
-        .panier {
-            height: 40px;
-            background-color: invert(98%) sepia(100%) saturate(0%) hue-rotate(289deg) brightness(102%) contrast(102%);
-        }
-    }
-
->>>>>>> alexis
-    .row {
+    .row  {
         display: none;
     }
 
-    .intro {
+    .intro  {
         display: flex;
         flex-direction: column;
         padding: 15%;
         text-align: center;
         color: white;
 
-        h1 {
+        h1  {
+            font-family: 'Fraunces', sans-serif;
             font-weight: 800;
             font-size: 60px;
             letter-spacing: 10px;
             font-family: 'Fraunces', sans-serif;
-            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: black;
+            text-shadow: 5px 5px 5px black;
+            padding: 5%;
+            margin: 5%;
+            margin-top: 10%;
+
+            @include media-maxwidth($mobile) {
+                font-size: 20px;
+            }
+
+            @include media-maxwidth($small-screen){
+                margin-top: 25%;
+            }
         }
 
-        p {
+        p  {
             font-weight: 400;
             font-size: 36px;
             letter-spacing: 2px;
+            padding: 5%;
+            margin: 5%;
             font-family: 'Fraunces', sans-serif;
             -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: black;
+            text-shadow: 5px 5px 5px black;
+
+            @include media-maxwidth($mobile) {
+                font-size: 20px;
+            }
         }
 
         .arrow-down {
@@ -97,6 +137,14 @@
             animation: gelatine 0.5s infinite;
         }
     }
+
+    .arrow-down {
+        display: flex;
+        justify-content: center;
+        padding: 7%;
+        margin: 1%;
+        animation: gelatine 0.5s infinite;
+    }
 }
 
 @keyframes gelatine {
@@ -104,8 +152,6 @@
     to {
         transform: scale(1, 1);
     }
-<<<<<<< HEAD
-=======
 
     25% {
         transform: scale(0.9, 1.1);
@@ -119,19 +165,71 @@
         transform: scale(0.95, 1.05);
     }
 }
->>>>>>> alexis
 
-    25% {
-        transform: scale(0.9, 1.1);
-    }
-
-    50% {
-        transform: scale(1.1, 0.9);
-    }
-
-    75% {
-        transform: scale(0.95, 1.05);
-    }
-
-
+.onoff {
+    appearance: none;
+    display: none;
 }
+
+.darkmode-button {
+    appearance: none;
+    display: none;
+}
+
+.toggle {
+    position: relative;
+}
+
+.toggle input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle .onoff {
+    color: #fff;
+    font-size: 6em;
+    text-align: center;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.slider {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    background-color: #333;
+    transition: 0.4s;
+    width: 50px;
+    height: 30px;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    background-color: #fff;
+    transition: 0.4s;
+    top: 2.5px;
+    left: 2.5px;
+}
+
+input:checked + .slider {
+    background-color: #fd5d00;
+    box-shadow: 0 0 3px #fd5d00;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+.slider.round {
+    border-radius: 5px;
+}
+
+.slider.round::before {
+    border-radius: 5px;
+}
+

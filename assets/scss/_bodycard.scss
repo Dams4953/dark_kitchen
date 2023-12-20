@@ -21,9 +21,23 @@ $cream: hsl(30, 38%, 92%);
     text-align: center;
 }
 
-@media (max-width: 470px) {}
+@media (max-width: 349px) {
+    .img-vege{
+        display:none;
+        width:0px;
+        max-width: 0px;
+}
+    .mission-container__content{
+        width:100%;
+        text-align: center;
+        margin-left: 0px;
+    }
+    #title-mission{
+        text-align: center;
+    }
+    }
 
-@media (min-width: 470px) {
+
     .desktop-image {
         display: block;
         display: block;
@@ -124,9 +138,108 @@ $cream: hsl(30, 38%, 92%);
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
     }
+    // BOUTON FILTRE
     #filter-buttons{
         text-align: center;
     }
+    #filter-buttons button{
+        background-color: white;
+    border-color: green;
+    border-radius: 10px;
+    margin-right: 10px;
+    }
+    #filter-buttons button:hover{
+        transform: scale(1.08);
+        transition-duration: 200ms;
+    }
+    #reset{
+        text-align:center;
+        margin-top: 10px;
+    }
+    #reset-button{
+        background-color: white;
+    border-color: red;
+    border-radius: 10px;
+    margin-right: 5px;
+    }
+    #reset-button:hover{
+        transform: scale(1.08);
+        transition-duration: 200ms;
+    }
 
+    //MISSION
+    .mission h2{
+    font-size: 34px;
+    color: $green;
+    font-family: "Fraunces";
+    text-align: center;
+    }
+    .mission{
+        width: 100%;
+        box-sizing: border-box;
+        padding-top: 64px;     
+        &__title{
+            padding: 36px 0;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }   
+        &__slogan{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            text-align: center;
+            font-family: "Montserrat";
+            font-weight: 500;
+            font-size: 22px;
+        }
 
-}
+    }
+    .mission-container{
+
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 64px;
+        margin-bottom: 64px;
+        &__content{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+            margin-left: 24px;
+            line-height: 1.4;
+            margin-top: 48px;
+            margin-right: 24px;
+            width: 50%;
+        }
+       
+    }
+    .img-vege{
+        width: 50%;
+        margin: 0 24px;
+        aspect-ratio: 8/7;
+        position: relative;
+    }
+  figure img{
+    width: 100%;
+height: 100%;
+-o-object-fit: cover;
+object-fit: cover;
+
+  }
+  .mission-container__content h3{
+    font-size: 34px;
+    color: $green;
+    font-family: "Fraunces";
+    text-align: left;
+    padding-bottom: 24px;
+  }
+  .mission-container__content p{
+    font-family: "Montserrat";
+            font-weight: 500;
+            font-size: 16px;
+  }
+
