@@ -184,6 +184,9 @@ toggleButton.addEventListener("click", () => {
   let backgroundConfi = document.querySelector('.footer_politiqueConfi')
   let orders = document.querySelectorAll('.card__order')
   let ordersName = document.querySelectorAll('.card__nom')
+  let contact = document.querySelector('.footer_contact')
+  let menutitle = document.querySelector('.h2main')
+  let active = document.querySelector('.active')
 
   if (body.classList.contains("dark-mode")) {
     backgroundSection.style.backgroundImage = "url('assets/images/darkmode-image.png')";
@@ -191,6 +194,9 @@ toggleButton.addEventListener("click", () => {
     barNav.style.backgroundColor = "rgb(66, 63, 62)"
     backgroundFooter.style.backgroundColor = "rgb(66, 63, 62)"
     backgroundConfi.style.backgroundColor = "rgb(85, 84, 83)"
+    contact.style.backgroundColor="rgb(66, 63, 62)"
+    menutitle.style.color="rgb(85, 84, 83)"
+    active.style.backgroundColor = "rgb(66, 63, 62)"
 
     allCards.forEach(card => {
       card.style.backgroundColor = "grey";
@@ -214,6 +220,9 @@ toggleButton.addEventListener("click", () => {
     barNav.style.backgroundColor = "";
     backgroundFooter.style.backgroundColor = "";
     backgroundConfi.style.backgroundColor = "";
+    contact.style.backgroundColor="";
+    menutitle.style.color="";
+    active.style.backgroundColor = "";
 
 
     allCards.forEach(card => {

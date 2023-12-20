@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -41,6 +42,7 @@ p, h1, h2, h3, h4, h5, h6 {
 .section-home .navbar {
   display: flex;
   flex-direction: row;
+  align-items: center;
   background-color: RGB(29, 95, 57);
   justify-content: space-between;
   position: fixed;
@@ -64,15 +66,6 @@ p, h1, h2, h3, h4, h5, h6 {
   list-style-type: none;
   font-family: "Fraunces";
 }
-@media (max-width: 500px) {
-  .section-home .navbar .nav_button {
-    display: none;
-  }
-}
-.section-home .navbar .nav_button {
-  color: white;
-  text-decoration: none;
-}
 .section-home .navbar .nav_text {
   margin: 2%;
 }
@@ -95,7 +88,42 @@ p, h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 .section-home .row {
+  cursor: pointer;
   display: none;
+}
+@media (max-width: 500px) {
+  .section-home #icons {
+    display: block;
+    color: white;
+    margin-right: 5%;
+  }
+  .section-home #icons:before {
+    content: "☰";
+  }
+  .section-home .active #icons:before {
+    content: "✕";
+  }
+  .section-home .nav_menu {
+    position: fixed;
+    top: -100%;
+    background-color: RGB(29, 95, 57);
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    transition: 0.25s;
+  }
+  .section-home .nav_menu.active {
+    top: 8%;
+    width: 100%;
+    z-index: -1;
+    margin: 0;
+    margin-top: 5%;
+    background-color: RGB(29, 95, 57);
+    padding: 2%;
+  }
+  .section-home .nav_menu li {
+    padding: 3px 0;
+  }
 }
 .section-home .intro {
   display: flex;
@@ -243,12 +271,21 @@ input:checked + .slider:before {
   border-radius: 5px;
 }
 
+.custom-button {
+  height: 30px;
+  width: 50px;
+  align-items: center;
+  display: flex;
+}
+
+.image-panier {
+  height: 15px;
+  width: auto;
+}
+
 .dark-mode {
   background-color: black;
   color: #fff;
-}
-.dark-mode .section-home {
-  background: url("../images/darkmode-image.png") no-repeat center center fixed;
 }
 
 *, *::before, *::after {
@@ -483,6 +520,7 @@ p, h1, h2, h3, h4, h5, h6 {
   align-content: center;
   align-items: center;
   width: 18%;
+  justify-content: center;
 }
 .footer_container_icones .footer_container_icones_list .footer_container_icones_list_li {
   margin-right: 100px;
@@ -688,6 +726,7 @@ p, h1, h2, h3, h4, h5, h6 {
   align-content: center;
   align-items: center;
   width: 18%;
+  justify-content: center;
 }
 .footer_container_icones .footer_container_icones_list .footer_container_icones_list_li {
   margin-right: 100px;
