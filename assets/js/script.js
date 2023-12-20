@@ -268,7 +268,7 @@ parent.appendChild(element)
 */
 
 
-//panier//
+
 // Créer un tableau avec tous les genres uniques de la collection
 const allGenres = collection.reduce((acc, card) => {
     card.genre.forEach(genre => {
@@ -356,5 +356,44 @@ function filterCollection(genre) {
       section.appendChild(div);
   }
 }
+
+//panier//
+const cartModal = document.getElementById("cartModal");
+const cartList = document.getElementById("cartItems");
+const cartTotal = document.getElementById("cartTotal");
+const closeCartModalHandler = document.getElementById("closeModal");
+const shoppingCartButton = document.querySelector(".shoppingcart");
+const addButtons = document.querySelectorAll(".cart");
+const total_count = document.querySelector(".total_count"); // Sélectionnez la span pour le nombre total d'articles
+
+let cart = [];
+let total = 0;
+
+
+// Open modal
+function openCartModal() {
+    cartModal.style.display = "block";
+    updateCartModalContent();
+  }
+  
+  // Close modal
+  function closeCartModal() {
+    cartModal.style.display = "none";
+  }
+  
+  shoppingCartButton.addEventListener("click", openCartModal);
+  closeCartModalHandler.addEventListener("click", closeCartModal);
+  
+  for (let button of addButtons) {
+    button.addEventListener(
+      "click",
+      function () {
+        addToCart(button.closest(".card"));
+        updateCartModalContent();
+      },
+      { once: true }
+    );
+  }
+
 
 

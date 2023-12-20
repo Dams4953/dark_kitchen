@@ -1,34 +1,9 @@
-
-
-@import'reset', 'header/header';
-
-
-
-
-
-       
+@import'reset', 'header/header';   
 @import 'darkmode/darkmode.scss';
-
-@import'reset';
-
-
-@import'bodycard';
-
-
-
-    .footer_container_icones_list {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        justify-content: space-between;
-    }
-
-
-@import'footer/footer';
-
-
 @import'bodycard';
 @import'footer/footer';
+@import'panier';
+
 
 
 

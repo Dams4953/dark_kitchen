@@ -1,17 +1,19 @@
+$screensizeFooter: "600px";
+
+@mixin media-maxwidth($screensizeFooter) {
+    @media (max-width: $screensizeFooter) {
+        @content;
+    }
+}
+
 
 .footer {
     width: 100%;
     background-color: #426d4a;
 
-    .footer_contact {
-        width: 20%;
-    background-color: #426d4a;
+}
 
-    .footer_contact {
-        width: 20%;
-    }
-}}
-
+//main du footer//
 .footer_container_contact {
     display: flex;
     justify-content: space-between;
@@ -20,79 +22,114 @@
     width: 100%;
     font-family: 'Dancing Script';
     font-size: 20px;
-    padding-top: 35px; 
+    padding-top: 25px;
     color: white;
-    
+
+    @include media-maxwidth($screensizeFooter) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer_contact {
+        width: 20%;
+        background-color: #426d4a;
+
+        @include media-maxwidth($screensizeFooter) {
+            width: 40%;
+
+        }
+
+    }
+
     strong {
-        font-size: 45px;
+        font-size: 35px;
     }
 
     img {
         width: 450px;
-    } 
+    }
+
+    .footer_container_about {
+        @include media-maxwidth($screensizeFooter) {
+            width: 40%;
+
+        }
+
+    }
+
+
 }
 
-.footer_contact_contact_items {
-    width: 20%;
+//icones du footer//
+.footer_container_icones {
+    display: flex;
+    width: 100%;
+
+    img {
+        width: 90px;
+
+
+    }
+
+    .footer_container_icones_reseaux {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        filter: invert(30%) sepia(115%) saturate(59%) hue-rotate(836deg) brightness(201%) contrast(247%);
+
+
+        .footer_container_icones_reseaux_list {
+            list-style: none;
+            display: flex;
+            align-content: center;
+            align-items: center;
+
+            @include media-maxwidth($screensizeFooter) {
+
+                margin-right: 30%;
+
+            }
+
+
+
+            .footer_container_icones_reseaux_list_li {
+                margin-right: 100px;
+                display: flex;
+                align-content: center;
+                align-items: center;
+
+                @include media-maxwidth($screensizeFooter) {
+                    margin-right: 30px;
+                    margin-top: 35px;
+                    margin-bottom: 35px;
+                    width: 20px;
+
+                }
+
+
+                img {
+                    width: 30px;
+
+                }
+
+            }
+        }
+    }
 }
 
+
+//bas du footer//
 .footer_politiqueConfi {
     display: flex;
     background-color: RGB(29, 95, 57);
     width: 100%;
     height: 50px;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
 
     .footer_politiqueConfi_P {
         font-size: 20px;
         color: white;
-    }
-}
-
-.footer_container_github {
-        display:flex;
-    img {
-        width: 90px;
-    }
-}
-
-.footer_container_icones {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    width: 84%;
-    filter: invert(30%) sepia(115%) saturate(59%) hue-rotate(836deg) brightness(201%) contrast(247%);
-    
-    width: 84%;
-    filter: invert(30%) sepia(115%) saturate(59%) hue-rotate(836deg) brightness(201%) contrast(247%);
-    
-   
-
-    .footer_container_icones_list {
-        list-style: none;
-        display: flex;      
-        align-content: center;
-        align-items: center;
-        width: 18%;
-        align-content: center;
-        align-items: center;
-        width: 18%;
-        
-       
-        
-    
-        .footer_container_icones_list_li {
-            margin-right: 100px;
-            
-            margin-right: 100px;
-            
-            
-            img {
-                width: 30px;
-                width: 30px;
-            }
-
-        }
     }
 }
