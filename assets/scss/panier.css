@@ -68,12 +68,4 @@ background-color: rgba(0, 0, 0, 0.5); / Semi-transparent background */
 .modal .modal-content #checkoutButton:hover,
 .modal .modal-content .clear_btn:hover {
   background-color: #2980b9;
-}
-
-.modal {
-  display: flex;
-  position: fixed;
-  width: 100%;
-  top: 15%;
-  justify-content: center;
 }/*# sourceMappingURL=panier.css.map */

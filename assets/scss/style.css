@@ -278,11 +278,6 @@ input:checked + .slider:before {
   display: flex;
 }
 
-.image-panier {
-  height: 15px;
-  width: auto;
-}
-
 .dark-mode {
   background-color: black;
   color: #fff;
