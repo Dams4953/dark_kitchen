@@ -1,8 +1,8 @@
-let collection = [
+const collection = [
   //1
   {
     nom: "Cheez Burger",
-    prix: "Prix : 4,50€",
+    prix: "Prix : 4.50",
     picture: "assets/images/burger1.jpeg",
     genre: ["Burger", "Vegetarien"],
     ingredients:["Neat patty, cheez, ketchup, mustard, pickles, onion"],
@@ -14,7 +14,7 @@ let collection = [
 //2
 {
   nom: "Smash Daddy",
-  prix: "Prix : 6,99€",
+  prix: "Prix : 6.99",
   picture: "assets/images/burger2.jpeg",
   genre: ["Burger", "Vegan"],
   ingredients:["double neat smashed patty, double cheez, grilled onion, mustard, stack sauce"],
@@ -26,7 +26,7 @@ let collection = [
 //3
 {
   nom: "NEW! BBQ Brisket Burger",
-  prix: "Prix : 8,99€",
+  prix: "Prix : 8.99",
   picture: "assets/images/burger3.jpeg",
   genre: ["Burger", "Vegetarien"],
   ingredients:["BBQ pulled mushroom 'brisket', double Neat smash patty, cheez, pickles, jalapenos, lettuce, pickled onion, BBQ sauce, herby aioli, mayo"],
@@ -38,7 +38,7 @@ let collection = [
 //4
 {
   nom: "Skinny Fries",
-  prix: "Prix : 3,99€",
+  prix: "Prix : 3.99",
   picture: "assets/images/frites1.jpeg",
   genre: ["Sides"],
   ingredients:["skinny salty skin-on fries"],
@@ -50,7 +50,7 @@ let collection = [
 //5
 {
   nom: "Crispy Chick'n Caesar Wrap",
-  prix: "Prix : 6,99€",
+  prix: "Prix : 6.99",
   picture: "assets/images/wrap1.jpeg",
   genre: ["Wraps", "Vegetarien"],
   ingredients:["fried chick'n, croutons, parmesan, romaine lettuce, caesar dressing, smashed avocado, fresh tortilla wrap"],
@@ -62,7 +62,7 @@ let collection = [
 //6
 {
   nom: "Falafel Caesar Wrap",
-  prix: "Prix : 6,99€",
+  prix: "Prix : 6.99",
   picture: "assets/images/wrap2.jpeg",
   genre: ["Wraps", "Vegetarien"],
   ingredients:["falafel, croutons, parmesan, romaine lettuce, caesar dressing, smashed avocado, fresh tortilla wrap"],
@@ -74,7 +74,7 @@ let collection = [
 //7
 {
   nom: "Cripsy Chick'n Caesar Salad",
-  prix: "Prix : 12,99€",
+  prix: "Prix : 12.99",
   picture: "assets/images/salade1.jpeg",
   genre: ["Salad", "Vegetarien"],
   ingredients:["crispy chick'n, croutons, parmesan, romaine lettuce, caesar dressing"],
@@ -86,7 +86,7 @@ let collection = [
 //8
 {
   nom: "Organic Orangeade",
-  prix: "Prix : 3,99€",
+  prix: "Prix : 3.99",
   picture: "assets/images/boisson1.jpeg",
   genre: ["Drinks"],
   ingredients:["Organic orangeade, this drink contains all the vitamins you need!"],
@@ -98,7 +98,7 @@ let collection = [
 //9
 {
   nom: "Lemony Lemonade",
-  prix: "Prix : 3,99",
+  prix: "Prix : 3.99",
   picture: "assets/images/boisson2.jpeg",
   genre: ["Drinks"],
   ingredients:["Organic lemonade, this drink contains all the vitamins you need!"],
@@ -107,9 +107,62 @@ let collection = [
   ],
   commander: "#",
 }];
-// STOCKER COPIE DE COLLECTION
+//* STOCKER COPIE DE COLLECTION
+const originalCollection = [...collection];
+//AFFICHER LES CARTES*//
 
-//AFFICHER LES CARTES
+let cart = [];
+let total = 0;
+
+function addPanier(objet) {
+  cart.push(objet);
+  console.log('Produit ajouté au panier :', objet.nom);
+  updateCartTable();
+}
+
+function updateCartTable() {
+  let cartTableBody = document.querySelector('#cartItems');
+  if (!cartTableBody) {
+    console.error('ID "cartItems" non trouvé.');
+    return;
+  }
+
+  cartTableBody.innerHTML = '';
+
+  for (let item of cart) {
+    let newRow = document.createElement('tr');
+
+    let offer = document.createElement('td');
+    offer.className = 'produit';
+    offer.textContent = item.nom;  
+    newRow.appendChild(offer);
+
+    let price = document.createElement('td');
+    let priceValue = parseFloat(item.prix.replace(/[^\d.]/g, ''));
+    price.textContent = `${priceValue.toFixed(2)}`; 
+    newRow.appendChild(price);
+
+    cartTableBody.appendChild(newRow);
+  }
+
+  updateTotal();
+}
+
+function updateTotal() {
+  let cartTotalElement = document.querySelector('#cartTotal');
+  if (!cartTotalElement) {
+    console.error('ID "cartTotal" non trouvé.');
+    return;
+  }
+
+  total = cart.reduce((acc, item) => {
+    let priceValue = parseFloat(item.prix.replace(/[^\d.]/g, ''));
+    return acc + priceValue;
+  }, 0).toFixed(2);
+
+  cartTotalElement.textContent = `€${total}`;
+}
+
 
 let section = document.getElementById('card-container');
 
@@ -154,13 +207,18 @@ for (let elem of collection) {
   let divlien = document.createElement('div');
   divlien.className = 'card__lien';
 
-  let button = document.createElement('a');
+  let button = document.createElement('button');
   button.className = 'card__order';
-  button.href = elem.commander;
   button.textContent = 'Commander le produit';
+  button.addEventListener("click", function () {
+    addPanier(elem);
+    console.log('Click sur le bouton Commander pour :', elem.nom);
+  });
 
+  // Ajoutez le bouton à la divlien
   divlien.appendChild(button);
 
+  // Ajoutez divimg, h2, h3, h4, p, divnote, et divlien à div
   div.appendChild(divimg);
   div.appendChild(h2);
   div.appendChild(h3);
@@ -169,52 +227,55 @@ for (let elem of collection) {
   div.appendChild(divnote);
   div.appendChild(divlien);
 
+  // Ajoutez div à la section
   section.appendChild(div);
 }
 
 
-let toggleButton = document.getElementById("darkmode-toggle");
-let body = document.body;
+
+//*DarkMode
+const toggleButton = document.getElementById("darkmode-toggle");
+const body = document.body;
 
 toggleButton.addEventListener("click", () => {
   body.classList.toggle("dark-mode");
 
   let backgroundSection = document.getElementById("section-home");
   let allCards = document.querySelectorAll(".card");
-  let barNav = document.querySelector(".navbar")
-  let categories = document.querySelectorAll(".card__genre")
-  let backgroundFooter = document.querySelector('.footer')
-  let backgroundConfi = document.querySelector('.footer_politiqueConfi')
-  let orders = document.querySelectorAll('.card__order')
-  let ordersName = document.querySelectorAll('.card__nom')
-  let contact = document.querySelector('.footer_contact')
-  let menutitle = document.querySelector('.h2main')
-  let active = document.querySelector('.active')
+  let barNav = document.querySelector(".navbar");
+  let categories = document.querySelectorAll(".card__genre");
+  let backgroundFooter = document.querySelector('.footer');
+  let backgroundConfi = document.querySelector('.footer_politiqueConfi');
+  let orders = document.querySelectorAll('.card__order');
+  let ordersName = document.querySelectorAll('.card__nom');
+  let contact = document.querySelector('.footer_contact');
+  let menutitle = document.querySelector('.h2main');
+  let navMenu = document.querySelector(".nav_menu")
 
   if (body.classList.contains("dark-mode")) {
     backgroundSection.style.backgroundImage = "url('assets/images/darkmode-image.png')";
     backgroundSection.style.backgroundSize = "cover";
-    barNav.style.backgroundColor = "rgb(66, 63, 62)"
-    backgroundFooter.style.backgroundColor = "rgb(66, 63, 62)"
-    backgroundConfi.style.backgroundColor = "rgb(85, 84, 83)"
-    contact.style.backgroundColor="rgb(66, 63, 62)"
-    menutitle.style.color="rgb(85, 84, 83)"
-    active.style.backgroundColor = "rgb(66, 63, 62)"
+    barNav.style.backgroundColor = "rgb(66, 63, 62)";
+    backgroundFooter.style.backgroundColor = "rgb(66, 63, 62)";
+    backgroundConfi.style.backgroundColor = "rgb(85, 84, 83)";
+    contact.style.backgroundColor="rgb(66, 63, 62)";
+    menutitle.style.color="rgb(85, 84, 83)";
+    navMenu.style.backgroundColor = "rgb(66, 63, 62)";
 
     allCards.forEach(card => {
       card.style.backgroundColor = "grey";
     });
-
+    
     categories.forEach(category => {
-      category.style.color = "rgb(85, 84, 83)";
+      category.style.color = "rgb(85, 84, 83)"
     });
-
+    
     orders.forEach(order => {
-      order.style.backgroundColor = "rgb(85, 84, 83)"
+      order.style.backgroundColor = "rgb(85, 84, 83)";
     })
-
+    
     ordersName.forEach(orderName => {
-      orderName.style.color = "rgb(85, 84, 83)"
+      orderName.style.color = "rgb(85, 84, 83)";
     })
 
   } else {
@@ -225,11 +286,11 @@ toggleButton.addEventListener("click", () => {
     backgroundConfi.style.backgroundColor = "";
     contact.style.backgroundColor="";
     menutitle.style.color="";
-    active.style.backgroundColor ="";
+    navMenu.style.backgroundColor = "";
 
 
     allCards.forEach(card => {
-      card.style.backgroundColor ="";
+      card.style.backgroundColor = "";
     });
 
     categories.forEach(category => {
@@ -240,9 +301,8 @@ toggleButton.addEventListener("click", () => {
       order.style.backgroundColor = "";
     })
 
-
     ordersName.forEach(orderName => {
-      orderName.style.color = ""
+      orderName.style.color = "";
     })
 
   }
@@ -251,7 +311,7 @@ toggleButton.addEventListener("click", () => {
 
 //panier//
 // Créer un tableau avec tous les genres uniques de la collection
-let allGenres = collection.reduce((acc, card) => {
+const allGenres = collection.reduce((acc, card) => {
   card.genre.forEach(genre => {
       if (!acc.includes(genre)) {
           acc.push(genre);
@@ -260,11 +320,11 @@ let allGenres = collection.reduce((acc, card) => {
   return acc;
 }, []);
 
-let filters = allGenres;  // Utiliser les genres uniques pour les filtres
-let filterButtons = document.getElementById('filter-buttons');
+const filters = allGenres;  // Utiliser les genres uniques pour les filtres
+const filterButtons = document.getElementById('filter-buttons');
 
-for (let filter of filters) {
-  let button = document.createElement('button');
+for (const filter of filters) {
+  const button = document.createElement('button');
   button.textContent = filter;
   button.addEventListener('click', () => filterCollection(filter));
   filterButtons.appendChild(button);
@@ -278,10 +338,10 @@ section.innerHTML = '';
 
 // Filtrer la collection en fonction du genre sélectionné
 
-let filteredCards = collection.filter((card) => card.genre.includes(genre));
+const filteredCards = originalCollection.filter((card) => card.genre.includes(genre));
 
 // Afficher les cartes filtrées
-for (let elem of filteredCards) {
+for (const elem of filteredCards) {
     let div = document.createElement('div');
     div.className = 'card';
 
@@ -322,10 +382,11 @@ for (let elem of filteredCards) {
     let divlien = document.createElement('div');
     divlien.className = 'card__lien';
 
-    let button = document.createElement('a');
-    button.className = 'card__order';
-    button.href = elem.commander;
+    let button = document.createElement('button');
+    button.className = 'cart__order';
     button.textContent = 'Commander le produit';
+    button.addEventListener("click", ()=>{addPanier(elem)});
+
 
     divlien.appendChild(button);
 
@@ -346,7 +407,7 @@ function resetCollection() {
 section.innerHTML = '';
 
 // Afficher toutes les cartes à nouveau
-for (let elem of collection) {
+for (const elem of originalCollection) {
   let div = document.createElement('div');
   div.className = 'card';
 
@@ -388,7 +449,7 @@ for (let elem of collection) {
   divlien.className = 'card__lien';
 
   let button = document.createElement('a');
-  button.className = 'card__order';
+  button.className = 'cart__order';
   button.href = elem.commander;
   button.textContent = 'Commander le produit';
 
@@ -407,22 +468,16 @@ for (let elem of collection) {
 }
 
 //panier//
-let cartModal = document.getElementById("cartModal");
-let cartList = document.getElementById("cartItems");
-let cartTotal = document.getElementById("cartTotal");
-let closeCartModalHandler = document.getElementById("closeModal");
-let shoppingCartButton = document.querySelector(".shoppingcart");
-let addButtons = document.querySelectorAll(".cart");
-let total_count = document.querySelector(".total_count"); // Sélectionnez la span pour le nombre total d'articles
+const cartModal = document.getElementById("cartModal");
+const closeCartModalHandler = document.getElementById("closeModal");
+const shoppingCartButton = document.querySelector(".shoppingcart");
+const addButtons = document.querySelectorAll(".cart");
 
-let cart = [];
-let total = 0;
 
 // Open modal
 function openCartModal() {
   if (cartModal) {
-    cartModal.style.display = "block";
-    updateCartModalContent();
+    cartModal.style.display = "flex";
   } else {
     console.error("L'élément cartModal n'a pas été trouvé.");
   }
@@ -441,7 +496,6 @@ for (let button of addButtons) {
     "click",
     function () {
       addToCart(button.closest(".card"));
-      updateCartModalContent();
     },
     { once: true }
   );
